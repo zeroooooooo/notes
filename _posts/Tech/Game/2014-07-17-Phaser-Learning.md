@@ -6,7 +6,7 @@ tags: Phaser
 type: Game
 ---
 
-###Phaser例子学习笔记
+### Phaser例子学习笔记
 
 		*.inputEnabled = true;                        //启动物体的事件属性
 		*.events.onInputeDown.add(listener, this);    //绑定事件

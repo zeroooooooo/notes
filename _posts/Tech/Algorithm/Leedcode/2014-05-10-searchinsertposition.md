@@ -6,7 +6,7 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/search-insert-position/)Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 <b>Here are few examples.</b>
@@ -18,9 +18,9 @@ type: Algorithm
 
 <b>题意: </b>在排好序的序列中查找一个数找得到的话返回位置,找不到返回插入的位置
 
-###思路
+### 思路
 相当于二分查找,直接上代码
-######代码
+###### 代码
 
 		int searchInsert(int A[], int n, int target) 
         {

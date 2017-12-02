@@ -6,15 +6,15 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/binary-tree-preorder-traversal/)Given a binary tree, return the preorder traversal of its nodes' values.
 
 <b>题意: </b>给一棵二叉树,返回树的前序遍历
 
-###思路
+### 思路
 输出根节点的值,然后先遍历左子树直到左子树为空再遍历右子树
 
-######递归代码
+###### 递归代码
 
 		void preorder(vector<int> &ans, TreeNode *root)
 	    {
@@ -32,7 +32,7 @@ type: Algorithm
 	        return ans;
 	    }
 
-######非递归代码
+###### 非递归代码
 		vector<int> preorderTraversal(TreeNode *root) 
 	    {
 	        vector<int> ans;
@@ -55,9 +55,9 @@ type: Algorithm
 	        return ans;
 	    }
 
-###中序遍历
+### 中序遍历
 
-######递归代码
+###### 递归代码
 
 		void inorder(vector<int> &ans, TreeNode *root)
 	    {
@@ -75,7 +75,7 @@ type: Algorithm
 	        return ans;
 	    }
 
-######非递归代码
+###### 非递归代码
 
 	    vector<int> inorderTraversal(TreeNode *root) 
 	    {
@@ -99,7 +99,7 @@ type: Algorithm
 	        return ans;
 	    }
 
-###后序遍历
+### 后序遍历
 
 ######递归代码
 

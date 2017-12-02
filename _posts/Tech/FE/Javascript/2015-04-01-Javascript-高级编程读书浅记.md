@@ -7,21 +7,17 @@ tags: Javascript
 type: FE
 ---
 
-###Js基础
+### Js基础
 + js中变量类型属于松散型变量，既可以保存各种数据类型的变量
 + var vin; (vin被赋予undefined)
 + 用var定义时是当前作用域的变量,如果去掉var则会定义为一个全局变量
 
-###基本数据类型
+### 基本数据类型
 
 + 基本数据类型(保存在栈内存,大小固定): undefined null boolean Number String
 + 复杂数据类型(保存在堆内存):object
-
-+ 基本类型: Undefined NULL Boolean String Number (按值引用,可直接操作存储值)
-    复制变量值时是创建一个新的值并赋予他想要复制的值,这两个值之间没有关联,操作也不会影响对方.
-+ 引用类型: Object (存储在内存中,不能直接操作内存,操作的是对象的引用)
-    引用类型的复制实际上是复制了一个指针指向共同的对象,所以操作会影响彼此
-
++ 基本类型: Undefined NULL Boolean String Number (按值引用,可直接操作存储值) 复制变量值时是创建一个新的值并赋予他想要复制的值,这两个值之间没有关联,操作也不会影响对方.
++ 引用类型: Object (存储在内存中,不能直接操作内存,操作的是对象的引用) 引用类型的复制实际上是复制了一个指针指向共同的对象,所以操作会影响彼此
 + 函数的参数都是按值传递的
 	    基本类型的参数和复制变量一样
 	    引用类型的参数也是按值传递,不过因为他们都指向同一个对象所以在函数内部进行的改变操作会体现在所有引用了该对象的变量上面
@@ -34,18 +30,15 @@ type: FE
 
 		instanceof(用于判断变量是属于什么对象类型)
 		变量 instanceof 对象
-<!--more-->
-
-###数据类型
-+ #####undefined类型:	                                                                                                                                只有undefined一个值，当变量没有初始化时就是undefined.
-因为没有定义的变量和变量没有赋值的结果都是undefined,所以最好所有变量都进行显示初始化,这样发生错误时就知道是没有定义变量而不是没有赋值。
+### 数据类型
++ ##### undefined类型:	                                                   		只有undefined一个值，当变量没有初始化时就是undefined.因为没有定义的变量和变量没有赋值的结果都是undefined,所以最好所有变量都进行显示初始化,这样发生错误时就知道是没有定义变量而不是没有赋值。
     
-+ #####null类型: 
++ ##### null类型: 
 		只有null一个值，表示一个空的对象指针，所以typeof null = Object
 	    当想要让一个变量存储对象，可以在初始化时将其值赋值为null
 	    undefined派生自null，所以undefined==null 返回true(==比较符会先转换比较类型,===就不会)
     
-+ #####Number类型:
++ ##### Number类型:
 	    最小的数值: Number.MIN_VALUE
 	    最大的数值: Number.MAX_VALUE
 	    isFinite(数值): false为无穷,true为最小与最大之间的数
@@ -54,7 +47,7 @@ type: FE
 		数值转换:
 	    Number(变量)较复杂,所以使用parseInt(字符串,进制类型),parseFloat(字符串,进制类型)
     
-+ #####String类型:
++ ##### String类型:
 	    toString(变量): 转换为字符串
 	    str.charAt(pos) 返回该位置的字符
 	    str.chatCodeAt(pos) 返回该位置的字符的编码
@@ -76,7 +69,7 @@ type: FE
 	    
 	    eval(执行语句) 存在危险,要注意
 
-+ #####Math类型:
++ ##### Math类型:
 	    Math.min(item0,item1,..),Math,max(item0,item1,..)
 	    Math.min.apply(Math,array); 在数组中求得最小值
 	    Math.cell(value) 向上舍入
@@ -84,10 +77,10 @@ type: FE
 	    Math.round(value) 四舍五入
 	    Math.random() 返回0~1之间的一个数，不包括0和1
 
-+ #####function类型:
++ ##### function类型:
     	数的参数存储在arguments这个对象中,可以通过遍历这个对象获得或有参数,所以在函数传参是不一定需要与函数定义是传入相同个数的参数。
 
-+ #####Array类型：
++ ##### Array类型：
 	    检测变量是否属于Array,Array.isArray().
 		Array.join('char')会将数组各项以字符char隔开,用于将数组转换成字符串
 		push(),pop()添加或移除数组尾项
@@ -115,16 +108,16 @@ type: FE
 	    });从前往后
 	    reduceRight() 从后往前
 
-+ #####Date类型:(从1970年1月1日零时到当前时间所经过的毫秒秒数)
++ ##### Date类型:(从1970年1月1日零时到当前时间所经过的毫秒秒数)
 	    创建: var now = new Date();获得当前的时间和日期
 	    Date.now() 获得执行该函数时的时间和日期的毫秒数
 
-+ #####RegExp:(正则表达式)
++ ##### RegExp:(正则表达式)
 	    var reg = /表达式/标志 (字面量方法,共用一个RegExp实例)
 	    var reg = new RegExp(表达式,标志) 每次调用都会生成一个新的实例,最好用这种方法
 	    标志: g = global 全局查找, i = case insensitive 忽略大小写, m = multiline 多行查找
 
-+ #####Function类型(实际上是一个对象):
++ ##### Function类型(实际上是一个对象):
 	    定义方法(解析器优读取函数声明使其在执行任何代码前可用,而函数表达式则要等到执行到它的代码行才会执行):
 	    function Hi(){} 函数声明的方法
 	    var Hi = function() 函数表达式的方法(就跟定义变量一样)
@@ -144,7 +137,7 @@ type: FE
 		call的参数是非数组,apply的参数是数组
 		fun1 = fun.bind(执行环境)会将函数fun绑定在给定的执行环境中赋给fun1
     
-+ #####Object类型:
++ ##### Object类型:
 	    创建方法: new Object()
 	            对象字面量(适用于多属性的对象变量快捷定义)
 	            var object = {
@@ -159,10 +152,10 @@ type: FE
 	    
 	    构造函数首字母应该大写，其他函数则为小写
 
-###面向对象
-####构建对象的方法:
+### 面向对象
+#### 构建对象的方法:
 	
-+ #####工厂模式(所有对象的原型均是Object,不能区分对象类别):
++ ##### 工厂模式(所有对象的原型均是Object,不能区分对象类别):
 		function createObj(name,type){
 			var o = new Object();
 			o.name = name;
@@ -174,7 +167,7 @@ type: FE
 			return o;
 		}
 	
-+ #####构造函数模式(函数名首字母大写表示该函数是一个类,可以创建有独立标识的对象类型):
++ ##### 构造函数模式(函数名首字母大写表示该函数是一个类,可以创建有独立标识的对象类型):
 		function Obj(name,type){
 			this.name = name;
 			this.type = type;
@@ -195,7 +188,7 @@ type: FE
 			return this.name;
 		}
 	
-+ #####原型模式(所有实例共享原型的方法和属性,如果实例进行相同名字的赋值或定义则会覆盖原型的但不会改变原型的):
++ ##### 原型模式(所有实例共享原型的方法和属性,如果实例进行相同名字的赋值或定义则会覆盖原型的但不会改变原型的):
 		function Obj(){}
 		Obj.prototype.name = "";
 		Obj.prototype.sayName = function(){
@@ -217,7 +210,7 @@ type: FE
 	
 	缺点:当原型中存在引用类型时,会影响实例之间的实际值即某一个实例对引用类型的值进行了改变会直接影响到其他的实例
 	
-+ #####原型混合构造(解决上面的问题,构造模式定义属性,原型模式定义方法):
++ ##### 原型混合构造(解决上面的问题,构造模式定义属性,原型模式定义方法):
 		function Obj(name,type){
 			this.name = name;
 			this.type = type;
@@ -229,7 +222,7 @@ type: FE
 			}
 		}
 	
-+ #####动态原型:
++ ##### 动态原型:
 		function Obj(name,type){
 			this.name = name;
 			this.type = type;
@@ -243,7 +236,7 @@ type: FE
 			}
 		}
 
-###继承
+### 继承
 		##组合继承:
 		function Parents(name, type){
 			this.name = name;
@@ -266,7 +259,7 @@ type: FE
 			return 'hehe';
 		};
 
-###闭包(闭包只能取得包含函数中的变量的最后一个值)
+### 闭包(闭包只能取得包含函数中的变量的最后一个值)
 	闭包使用过多会占据大量内存
 	有权访问另一个函数作用域中的变量的函数
 		function p(){
@@ -291,7 +284,7 @@ type: FE
     
     匿名函数的执行环境具有全局性,所以在函数内部的this会指向window,所以如果想要让this指向包含函数的执行环境,则应该在包含函数内将this的做一个备份,然后在匿名函数中调用备份即可
 
-###DOM
+### DOM
 	    childNodes: 子节点
 	    parentNode: 父节点
 	    previouSibling: 上一个节点
@@ -310,7 +303,7 @@ type: FE
 	    querySelector(CSS选择符) 返回一个
 	    querySelectorAll(CSS选择符) 返回NodeList
     
-###事件
+### 事件
 	    事件冒泡: 事件由具体的对象逐级向上传播
 	    事件捕获: 由上级逐渐靠近具体的对象
 	    DOM事件流: 事件捕获阶段 处于目标阶段 事件冒泡阶段
@@ -329,12 +322,12 @@ type: FE
 	    
 	    推荐在事件冒泡阶段进行事件处理
 
-###Json
+### Json
 	    Json.stringify(js对象)序列化为Json字符串
 	    Json.parse(Json字符串) 转化为js对象
 
-###杂记
-+ #####杂记：
+### 杂记
++ ##### 杂记：
 		defer(之前的方法,只能用在外部js文件,在页面加载的同时加载js文件,但是不执行,执行顺序按照js的加载顺序进行，所以要注意加载的顺序)
 		async(html5的方法,同上，不过不能保证执行按照加载顺序进行)
 
@@ -344,14 +337,14 @@ type: FE
 					
 		因为在js中没有块级作用域,所以在条件语句,循环语句等中定义新的变量时会将变量添加到离他们最近的执行环境中.
     
-+ #####性能优化:
++ ##### 性能优化:
 		使用DocumentFragment添加子元素
 		用join代替+进行字符串拼接
 		尽可能使用css实现动画效果
 		使用Data-url(base64编码)代替src来显示图片,减少http请求
 		使用媒体查询来进行对应的尺寸的图片进行加载
 
-+ #####Ajax:
++ ##### Ajax:
 	Get请求(通常用于查询):可以通过encodeURlComponent()进行参数编码使得url规范化
 
 	Post请求(通常用于向服务器发送数据,数据量很多)
@@ -421,7 +414,7 @@ type: FE
 
 
 
-+ #####跨域
++ ##### 跨域
 		jsonp(通过动态创建script标签或引入别的域的文件,在调用回调函数即可):
 		<script>
 			function jsonpCallback(result){
@@ -430,7 +423,7 @@ type: FE
 	    <script type="text/javascript" src="http://vincween.sinaapp.com/getmessage.php?callback=jsonpCallback"></script>
 	
 	
-+ #####垂直剧中:
++ ##### 垂直剧中:
 		#content {
 			position:absolute;
 			top:0;

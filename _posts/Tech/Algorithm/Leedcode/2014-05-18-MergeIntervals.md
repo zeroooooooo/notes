@@ -6,7 +6,7 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/merge-intervals/)Given a collection of intervals, merge all overlapping intervals.
 
 <b>For example:</b>
@@ -16,10 +16,10 @@ type: Algorithm
 
 <b>题意: </b>合并重复的区间,看案例很容易看懂
 
-###思路
+### 思路
 首先先将vector按照start进行排序,然后扫描一遍vector将可以合并的区间合并生成一个新的Interval然后存入新的vector.
 
-######代码
+###### 代码
 
 		static bool comp(Interval A, Interval B)
 	    {

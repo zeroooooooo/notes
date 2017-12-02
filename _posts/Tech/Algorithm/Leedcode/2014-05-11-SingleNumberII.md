@@ -6,7 +6,7 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/single-number-ii/)Given an array of integers, every element appears three times except for one. Find that single one.
 
 <b>Note:</b>
@@ -14,10 +14,10 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
 
 <b>题意: </b>这是[Single Number](http://vincween.github.io/notes/interview/2014/05/09/singlenumber.html)的进阶,不过这道题其他数出现的次数是三次,并且也是线性时间和不使用额外的空间
 
-###思路
+### 思路
 [参考博客1 ](http://www.tuicool.com/articles/UjQV7n)[ 参考博客2](http://blog.csdn.net/lanxu_yy/article/details/17437891)全部都是位操作.
 
-######代码
+###### 代码
 
 		int singleNumber(int A[], int n) 
 		{

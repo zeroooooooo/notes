@@ -6,16 +6,16 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/climbing-stairs/)You are climbing a stair case. It takes n steps to reach to the top.
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
 <b>题意: </b>给定n阶台阶.每次只能爬一步或者两步,求登上顶端的方式有多少种
 
-###思路
+### 思路
 可以从顶端往下分析,若最后差一步到达顶端,则登上顶端的方式数应该等于sum(n-1),若最后差两步到达顶端,则登上顶端的方式数应该等于sum(n-2),所以sum(n)=sum(n-1)+sum(n-2),即斐波那契数列.
 
-######代码
+###### 代码
 
 		int climbStairs(int n) 
 	    {
@@ -29,7 +29,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
 	        return ans[n];
 	    }
 
-#####更好的方法
+##### 更好的方法
 
 		int climbStairs(int n) 
 	    {

@@ -6,7 +6,7 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/Symmetric Tree/)Given a binary tree, isMirror whether it is a mirror of itself (ie, symmetric around its center).
 
 <b>For example, this binary tree is symmetric:</b>
@@ -28,10 +28,10 @@ type: Algorithm
 <b>题意: </b>
 判断给定的二叉树是否对称.
 
-###思路
+### 思路
 看代码应该很容易看懂的.
 
-######代码
+###### 代码
 
 		bool isMirror(TreeNode *l, TreeNode *r)
         {

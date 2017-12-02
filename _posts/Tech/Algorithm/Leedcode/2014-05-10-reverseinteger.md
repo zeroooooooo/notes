@@ -6,7 +6,7 @@ tags: Leecode
 type: Algorithm
 ---
 
-###题目
+### 题目
 [原题: ](http://oj.leetcode.com/problems/reverse-integer/)Reverse digits of an integer.
 
 <b>Example1: </b>x = 123, return 321
@@ -22,7 +22,7 @@ Throw an exception? Good, but what if throwing an exception is not an option? Yo
 <b>题意: </b>反转一个整数
 <b>注意: </b>要考虑到结尾为0和可能会溢出的情况
 
-###思路很简单直接上代码
+### 思路很简单直接上代码
 
 		int reverse(int x) 
         {

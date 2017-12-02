@@ -1,0 +1,35 @@
+task :default => :new
+require 'fileutils'
+desc "创建新 post"
+task :new do
+  puts "请输入要创建的 post URL："
+	@url = STDIN.gets.chomp
+	puts "请输入 post 标题："
+	@name = STDIN.gets.chomp
+    puts "请输入 category type tags 分类, 以空格隔开："
+    @postType = STDIN.gets.chomp.split(' ')
+    @categories = @postType[0]
+	@type = @postType[1]
+	@tags = @postType[2]
+	@slug = "#{@url}"
+	@slug = @slug.downcase.strip.gsub(' ', '-')
+	@date = Time.now.strftime("%F")
+	@post_name = "_posts/#{@categories}/#{@type}/#{@tags}/#{@date}-#{@slug}.md"
+	@author = "Zerol"
+	if File.exist?(@post_name)
+			abort("文件名已经存在！创建失败")
+	end
+	FileUtils.touch(@post_name)
+	open(@post_name, 'a') do |file|
+			file.puts "---"
+			file.puts "layout: post"
+			file.puts "title: \"#{@name}\""
+			file.puts "date: #{Time.now}"
+			file.puts "author: \"#{@author}\""
+            file.puts "category: #{@categories}"
+            file.puts "tags: #{@tags}"
+            file.puts "type: #{@type}"
+			file.puts "---"
+	end
+	exec "code #{@post_name}"
+end
