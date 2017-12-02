@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.3.3
+
+script: ./bin/cibuild
+
+before_script:
+ - chmod +x ./bin/cibuild
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GIT_REPO_NOTES_TOKEN
+  local_dir: _site
+  on:
+    branch: notes

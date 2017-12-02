@@ -1,0 +1,27 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Zerol's Notes</title>
+ <link href="http://notes.moments.moe/atom.xml" rel="self"/>
+ <link href="http://notes.moments.moe/"/>
+ <updated>{{ site.time | date_to_xmlschema }}</updated>
+ <id>http://notes.moments.moe/</id>
+ <author>
+   <name>zerol</name>
+   <email>oyster.zero.l@gmail.com</email>
+ </author>
+
+ {% for post in site.posts limit:20 %}
+ <entry>
+   <title>{{ post.title }}</title>
+   <link href="http://notes.moments.moe{{ post.url }}"/>
+   <updated>{{ post.date | date_to_xmlschema }}</updated>
+   <id>http://notes.moments.moe{{ post.id }}</id>
+   <content type="html">{{ post.content | xml_escape }}</content>
+ </entry>
+ {% endfor %}
+ 
+</feed>
