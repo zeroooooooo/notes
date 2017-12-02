@@ -172,7 +172,7 @@ div#content img, div#content object {
 	/*border:5px solid #222222;*/
 	/*width:680px;*/
 }
-div.gitment-container img.gitment-github-icon {
+div#content div.gitment-container img.gitment-editor-avatar-img {
 	width: 44px;
 	height: 44px;
 }
