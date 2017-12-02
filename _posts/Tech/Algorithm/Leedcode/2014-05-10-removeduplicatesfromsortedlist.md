@@ -1,7 +1,9 @@
 ---
 layout: post
 title: Remove Duplicates from Sorted List  
-category: interview
+category: Tech
+tags: Leecode
+type: Algorithm
 ---
 
 ###题目
