@@ -8,6 +8,7 @@ exclude:
 
 kramdown:
   syntax_highlighter: rouge
+  input: GFM
 
   # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
   # span, block element options fall back to global
@@ -16,5 +17,5 @@ kramdown:
     span:
       line_numbers: false
     block:
-      line_numbers: true
+      line_numbers: false
       start_line: 1

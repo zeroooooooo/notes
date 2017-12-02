@@ -345,9 +345,8 @@ type: FE
 		使用媒体查询来进行对应的尺寸的图片进行加载
 
 + ##### Ajax:
-	Get请求(通常用于查询):可以通过encodeURlComponent()进行参数编码使得url规范化
-
-	Post请求(通常用于向服务器发送数据,数据量很多)
+		Get请求(通常用于查询):可以通过encodeURlComponent()进行参数编码使得url规范化
+		Post请求(通常用于向服务器发送数据,数据量很多)
 		function GetXmlHttpObject()
 		{
 			var xmlHttp=null;
@@ -410,18 +409,13 @@ type: FE
 			}
 		}
 
-
-
-
-
 + ##### 跨域
 		jsonp(通过动态创建script标签或引入别的域的文件,在调用回调函数即可):
 		<script>
 			function jsonpCallback(result){
 	        } 
 	    </script> 
-	    <script type="text/javascript" src="http://vincween.sinaapp.com/getmessage.php?callback=jsonpCallback"></script>
-	
+	    <script type="text/javascript" src="domain.com?callback=jsonpCallback"></script>
 	
 + ##### 垂直剧中:
 		#content {
