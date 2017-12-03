@@ -2,12 +2,14 @@
 <html>
 	{% include header.html %}
 	<body>
-		<div id="nav">
-			<div id="log"><a href="/"><img src="/assets/image/zerol.png" /></a></h1>
-		</div>
-		<div id="wrapper">
+		{% include header_nav.html %}
+		<div class="wrapper main">
+			<blockquote id="intro">
+				<p>如何能成为更好的船长, 从来也许都是纸上得来终觉浅的, 但还未读得万卷书, 还不敢轻易的下论断。</p>
+				<br />
+			</blockquote>
+		
 			<div id="content" class="index">
-				{% include sidebar.html %}
 				<div id="main">
 				{{ content }}
 				</div>
@@ -17,3 +19,4 @@
 	</body>
 </html>
 
+-

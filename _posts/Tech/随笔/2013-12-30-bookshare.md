@@ -1,6 +1,6 @@
 ---
 layout: post
-title: BookShare(图书分享)
+title: BookShare
 category: Tech
 tags: 说说
 type: Project

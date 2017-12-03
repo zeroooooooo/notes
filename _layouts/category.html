@@ -8,12 +8,17 @@
 				<div id="main">
 					<ul class="posts">
 					{% for post in site.categories[page.category] %}
-					<li>
-						<p class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</p>
-						<span class="category">{{post.type}}/{{post.tags}}</span>
-						 <a href="{{ post.url }}">{{ post.title }}</a>
-					</li>
-					{% endfor %}
+					{% assign postPublishYear = post.date | date: '%Y' %}
+					{% assign currentYear = "now" | date: '%Y' %}
+					{% assign diffTime = currentYear | minus: postPublishYear %}	
+					{% if diffTime <= 1 and postPublishYear >= '2017' %}
+						<li>
+							<p class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</p>
+							<span class="category">{{post.type}}/{{post.tags}}</span>
+							 <a href="{{ post.url }}">{{ post.title }}</a>
+						</li>
+					{% endif %}
+					{% endfor %}	
 					</ul>
 				</div>
 			</div>
@@ -21,5 +26,3 @@
 		</div>
 	</body>
 </html>
-
-

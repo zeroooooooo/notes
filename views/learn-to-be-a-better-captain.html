@@ -1,0 +1,19 @@
+---
+layout: strawhat
+title: Zerol's Paintings
+---
+
+<ul class="posts">
+        {% for post in site.posts %}
+        {% assign postPublishYear = post.date | date: '%Y' %}
+        {% assign currentYear = "now" | date: '%Y' %}
+        {% assign diffTime = currentYear | minus: postPublishYear %}	
+        {% if diffTime <= 1 %}
+            <li>
+                <span class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</span> 
+                <span class="category">{{ post.tags}}</span>
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}		
+        {% endfor %}
+</ul>
