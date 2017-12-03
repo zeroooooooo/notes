@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: resume
 title: About Me
 ---
 
@@ -17,6 +17,8 @@ title: About Me
 ### 技能列表
 
 * HTML/CSS/Javascript []()
+<!-- * Angular/Vue []() -->
+<!-- * Node.js/Python []() -->
 
 ### 工作经历
 
