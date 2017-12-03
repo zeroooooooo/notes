@@ -5,10 +5,10 @@ title: About Me
 
 ### 基本信息
 
-* zerol/男/1991
+* Zerol
 * 中山大学
 * Github: [https://github.com/zeroooooooo](https://github.com/zeroooooooo)
-* Email: b3lzdGVyLnplcm8ubCtwZWRhbG9AZ21haWwuY29t
+* Email: by55LnMudC5lLnIuei5lLnIuby5sK3AuZS5kLmEubC5vQGdtYWlsLmNvbQ==
 
 ### 我这个人
 
@@ -17,8 +17,8 @@ title: About Me
 ### 技能列表
 
 * HTML/CSS/Javascript []()
-<!-- * Angular/Vue []() -->
-<!-- * Node.js/Python []() -->
+<!-- * Angular/Vue/React []() -->
+<!-- * Node.js/Python/eggjs []() -->
 
 ### 工作经历
 
