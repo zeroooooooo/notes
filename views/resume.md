@@ -7,7 +7,7 @@ title: About Me
 
 * Zerol
 * 中山大学
-* Github: [https://github.com/zeroooooooo](https://github.com/zeroooooooo)
+* Github: [Zerol's Github](https://git.io/vbOcO)
 * Email: by55LnMudC5lLnIuei5lLnIuby5sK3AuZS5kLmEubC5vQGdtYWlsLmNvbQ==
 
 ### 我这个人
