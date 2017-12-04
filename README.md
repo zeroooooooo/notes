@@ -1,2 +1,1 @@
-### [https://zerol.xyz] (Zerol's Notes)
-Capture the moments and record the train of thoughts.
+[Zerol's Notes](https://zerol.xyz) Capture the moments and record the train of thoughts.
