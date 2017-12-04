@@ -1,12 +1,16 @@
-- title: 2017/12
-  content:
-    - type: Health
-      text: 健身
-    - type: 阅读
-      text: 代码大全
-    - type: 电影
-      text: 完美风暴
-    - type: 电影
-      text: 赌徒
-    - type: Notes
-      text: start from zero
+- town: dawning
+  src: //trello.com/b/F1gyL4zj/dawning
+  title: 一点一点遇见曙光
+  period: 
+   - time: 2017/12
+     content:
+      - type: Health
+        text: 健身
+      - type: 阅读
+        text: 代码大全
+      - type: 电影
+        text: 完美风暴
+      - type: 电影
+        text: 赌徒
+      - type: Notes
+        text: start from zero

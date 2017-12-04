@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: doing
 title: Doing
 ---
 
@@ -7,21 +7,41 @@ title: Doing
     #content ul#doing li span.error {
         background: #D50000;
     }
+    #content ul#doing .mood {
+        background: #eee;
+        padding: 15px;
+        margin: 10px -15px 20px -15px;
+        border: 0;
+        color: #000;
+    }
+    #content ul#doing .mood a {
+        color: #343642
+    }
 </style>
 
 <ul id="doing">
     {% for item in site.data.doing %}
+    <div class="mood">
+        <span>
+            这块巧克力是
+            <a href="{{ item.src }}" target="_blank">{{item.town}}</a> 味的, 
+            {{ item.title }}
+        </span>
+    </div>
+    {% for periodItem in item.period %}
     <li>
         <div class="tail"></div>
         <div class="head"></div>
         <div class="content">
-            <h3>{{item.title}}</h3>
+            <h3>{{periodItem.time}}</h3>
             <ul class="item">
-                {% for subitem in item.content %}
+                {% for subitem in periodItem.content %}
                 <li><span class="tag {{subitem.class}}">{{subitem.type}}</span> {{subitem.text}}</li>
                 {% endfor %}
             </ul>
+            
         </div>
     </li>
+    {% endfor %}
     {% endfor %}
 </ul>
