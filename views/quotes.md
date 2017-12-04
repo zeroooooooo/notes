@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: quotes
 title: Quotes
 ---
 
