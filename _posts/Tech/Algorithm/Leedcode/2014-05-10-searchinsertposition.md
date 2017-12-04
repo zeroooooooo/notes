@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/search-insert-position/)Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+[原题: ](//oj.leetcode.com/problems/search-insert-position/)Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
 
 <b>Here are few examples.</b>
 

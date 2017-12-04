@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/palindrome-number/)Determine whether an integer is a palindrome. Do this without extra space.
+[原题: ](//oj.leetcode.com/problems/palindrome-number/)Determine whether an integer is a palindrome. Do this without extra space.
 
 <b>题意: </b>判断给定的数是否是回文数,不能使用额外的空间,还要注意溢出等问题
 

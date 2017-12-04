@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list/)Given a sorted linked list, delete all duplicates such that each element appear only once.
+[原题: ](//oj.leetcode.com/problems/remove-duplicates-from-sorted-list/)Given a sorted linked list, delete all duplicates such that each element appear only once.
 
 <b>Here are few examples.</b>
 

@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/climbing-stairs/)You are climbing a stair case. It takes n steps to reach to the top.
+[原题: ](//oj.leetcode.com/problems/climbing-stairs/)You are climbing a stair case. It takes n steps to reach to the top.
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
 
 <b>题意: </b>给定n阶台阶.每次只能爬一步或者两步,求登上顶端的方式有多少种

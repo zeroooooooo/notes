@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/binary-tree-preorder-traversal/)Given a binary tree, return the preorder traversal of its nodes' values.
+[原题: ](//oj.leetcode.com/problems/binary-tree-preorder-traversal/)Given a binary tree, return the preorder traversal of its nodes' values.
 
 <b>题意: </b>给一棵二叉树,返回树的前序遍历
 

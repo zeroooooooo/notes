@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/reverse-integer/)Reverse digits of an integer.
+[原题: ](//oj.leetcode.com/problems/reverse-integer/)Reverse digits of an integer.
 
 <b>Example1: </b>x = 123, return 321
 <b>Example2: </b>x = -123, return -321

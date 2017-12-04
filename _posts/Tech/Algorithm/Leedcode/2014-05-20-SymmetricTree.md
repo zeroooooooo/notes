@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/Symmetric Tree/)Given a binary tree, isMirror whether it is a mirror of itself (ie, symmetric around its center).
+[原题: ](//oj.leetcode.com/problems/Symmetric-Tree/)Given a binary tree, isMirror whether it is a mirror of itself (ie, symmetric around its center).
 
 <b>For example, this binary tree is symmetric:</b>
 

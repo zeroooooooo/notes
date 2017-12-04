@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/first-missing-positive/)Given an unsorted integer array, find the first missing positive integer.
+[原题: ](//oj.leetcode.com/problems/first-missing-positive/)Given an unsorted integer array, find the first missing positive integer.
 
 <b>For example:</b>
 
@@ -19,7 +19,7 @@ type: Algorithm
 <b>题意: </b>在一个未排序的数组中找出第一个数组中没有的正数,要求在线性时间和固定空间里完成算法.
 
 ### 思路
-[参考博客](http://www.cnblogs.com/linyx/p/3730126.html)可以扫描一遍数组然后处理以下几种情况
+[参考博客](//www.cnblogs.com/linyx/p/3730126.html)可以扫描一遍数组然后处理以下几种情况
 
 + 如果当前A[i]越界,即1>A[i]||A[i]>n,则跳过
 + 如果当前的A[i] = i+1,则该位置的数是正确的,跳过

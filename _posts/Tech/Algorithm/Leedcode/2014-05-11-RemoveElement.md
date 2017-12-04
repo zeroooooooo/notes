@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/remove-element/)Given an array and a value, remove all instances of that value in place and return the new length.
+[原题: ](//oj.leetcode.com/problems/remove-element/)Given an array and a value, remove all instances of that value in place and return the new length.
 The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 
 <b>题意: </b>在给定的数组中出去给定的目标数

@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题 :](http://oj.leetcode.com/problems/single-number/)Given an array of integers, every element appears twice except for one. Find that single one.
+[原题 :](//oj.leetcode.com/problems/single-number/)Given an array of integers, every element appears twice except for one. Find that single one.
 <b>Note:</b>
 Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
 

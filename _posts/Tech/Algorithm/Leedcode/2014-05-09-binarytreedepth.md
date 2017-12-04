@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/maximum-depth-of-binary-tree/)Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+[原题: ](//oj.leetcode.com/problems/maximum-depth-of-binary-tree/)Given a binary tree, find its maximum depth.The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
 <b>题意: </b>给定一个二叉树,求出二叉树的最大深度.最大的深度等于根节点到叶子节点的最长的那条路径的长度
 

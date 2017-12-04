@@ -7,7 +7,7 @@ type: Algorithm
 ---
 
 ### 题目
-[原题: ](http://oj.leetcode.com/problems/merge-intervals/)Given a collection of intervals, merge all overlapping intervals.
+[原题: ](//oj.leetcode.com/problems/merge-intervals/)Given a collection of intervals, merge all overlapping intervals.
 
 <b>For example:</b>
 
