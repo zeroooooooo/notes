@@ -6,7 +6,6 @@ exclude:
   - bin
   - vendor
   - rakefile
-  - category
 
 kramdown:
   syntax_highlighter: rouge
