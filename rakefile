@@ -6,11 +6,12 @@ task :new do
 	@url = STDIN.gets.chomp
 	puts "请输入 post 标题："
 	@name = STDIN.gets.chomp
-    puts "请输入 category type tags 分类, 以空格隔开："
-    @postType = STDIN.gets.chomp.split(' ')
-    @categories = @postType[0]
-	@type = @postType[1]
-	@tags = @postType[2]
+    puts "请输入 category 分类, 以空格隔开："
+	@categories = STDIN.gets.chomp
+	puts "请输入 type 分类, 以空格隔开："
+	@type = STDIN.gets.chomp
+	puts "请输入 tags 分类, 以空格隔开："
+    @tags = STDIN.gets.chomp
 	@slug = "#{@url}"
 	@slug = @slug.downcase.strip.gsub(' ', '-')
 	@date = Time.now.strftime("%F")

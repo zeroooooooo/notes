@@ -5,6 +5,8 @@ exclude:
   - Gemfile.lock
   - bin
   - vendor
+  - rakefile
+  - category
 
 kramdown:
   syntax_highlighter: rouge
