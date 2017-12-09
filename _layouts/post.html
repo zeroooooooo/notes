@@ -12,21 +12,7 @@
 					--AO--
 					<p>若无特别说明，本站文章均为原创，转载请保留链接，谢谢</p>
 				</div>
-				<div id="disqus_thread"></div>
-				<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-				<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-				<script>
-					var gitment = new Gitment({
-						owner: 'zeroooooooo',
-						repo: 'notes',
-						oauth: {
-							client_id: '975a5fde9f0d0b509d35',
-							client_secret: '063bd3eca9f6269054dd81d9a9bd6a8cc5f59f12',
-						},
-					})
-					gitment.render('disqus_thread')
-				</script>
-				<noscript>Please enable JavaScript to view the comments powered by Gitment </noscript>
+				{% include issues.html %}	
 			</div>
 			{% include footer.html %}
 		</div>
