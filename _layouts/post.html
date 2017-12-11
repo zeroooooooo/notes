@@ -1,6 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	{% include header.html title=page.title %}
+	<style>
+		.cc-tips {
+			margin-top: 20px;
+		}
+		.cc-tips p {
+			margin: 0 !important;
+			font-size: 13px;
+		}
+	</style>
 	<body>
 		{% include header_nav.html %}
 		<div class="wrapper main">
@@ -9,8 +18,10 @@
 				<div class="cnt">
 					{{ content }}
 					<br />
-					--AO--
-					<p>若无特别说明，本站文章均为原创，转载请保留链接，谢谢</p>
+					<div class="cc-tips">
+						<p>--AO--</p>
+						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢</p>
+					</div>
 				</div>
 				{% include issues.html %}	
 			</div>

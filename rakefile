@@ -15,7 +15,8 @@ task :new do
 	@slug = "#{@url}"
 	@slug = @slug.downcase.strip.gsub(' ', '-')
 	@date = Time.now.strftime("%F")
-	@post_name = "_posts/#{@categories}/#{@type}/#{@tags}/#{@date}-#{@slug}.md"
+	# @post_name = "_posts/#{@categories}/#{@type}/#{@tags}/#{@date}-#{@slug}.md"
+	@post_name = "_drafts/#{@date}-#{@slug}.md" #创建草稿
 	@author = "Zerol"
 	if File.exist?(@post_name)
 			abort("文件名已经存在！创建失败")
@@ -25,11 +26,11 @@ task :new do
 			file.puts "---"
 			file.puts "layout: post"
 			file.puts "title: \"#{@name}\""
-			file.puts "date: #{Time.now}"
-			file.puts "author: \"#{@author}\""
-            file.puts "category: #{@categories}"
             file.puts "tags: #{@tags}"
-            file.puts "type: #{@type}"
+			file.puts "type: #{@type}"
+			file.puts "category: #{@categories}"
+			file.puts "author: \"#{@author}\""
+			file.puts "created: #{Time.now}"
 			file.puts "---"
 	end
 	exec "code #{@post_name}"
