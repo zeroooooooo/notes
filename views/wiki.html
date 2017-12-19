@@ -1,0 +1,23 @@
+---
+layout: wiki
+title: Zerol's Paintings
+---
+
+<ul class="posts">
+    {% for post in site.posts %}
+    {% assign year = post.date | date: '%Y' %}
+    {% assign nyear = post.next.date | date: '%Y' %}
+    {% if post.category == 'Wiki' %}
+        {% if year != nyear %}
+            <div class="cnt">
+                <h3>{{ post.date | date: '%Y' }}</h3>
+            </div>
+        {% endif %}		
+        <li>
+            <span class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</span> 
+            <span class="category">{{post.type}}</span>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+    {% endif %}	
+    {% endfor %}
+</ul>

@@ -4,6 +4,8 @@
   period: 
    - time: 2017/12
      content:
+      - type: 阅读
+        text: DOOM 启示录
       - type: Health
         text: 健身
       - type: 阅读
@@ -12,5 +14,5 @@
         text: 完美风暴
       - type: 电影
         text: 赌徒
-      - type: Notes
+      - type: Blog
         text: start from zero

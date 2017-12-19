@@ -11,7 +11,7 @@ layout: null
  <id>//zerol.xyz/</id>
  <author>
    <name>zerol</name>
-   <email>oyster.zero.l@gmail.com</email>
+   <email>by55LnMudC5lLnIuei5lLnIuby5sK3AuZS5kLmEubC5vQGdtYWlsLmNvbQ==</email>
  </author>
 
  {% for post in site.posts limit:20 %}

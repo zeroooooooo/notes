@@ -2,7 +2,7 @@
 layout: post
 title: BookShare
 category: Tech
-tags: 说说
+tags: 随笔
 type: Project
 ---
 

@@ -11,7 +11,9 @@ task :new do
 	puts "请输入 type 分类, 以空格隔开："
 	@type = STDIN.gets.chomp
 	puts "请输入 tags 分类, 以空格隔开："
-    @tags = STDIN.gets.chomp
+	@tags = STDIN.gets.chomp
+	puts "是否不展示该文章："
+    @isHide = STDIN.gets.chomp
 	@slug = "#{@url}"
 	@slug = @slug.downcase.strip.gsub(' ', '-')
 	@date = Time.now.strftime("%F")
@@ -31,6 +33,7 @@ task :new do
 			file.puts "category: #{@categories}"
 			file.puts "author: \"#{@author}\""
 			file.puts "created: #{Time.now}"
+			file.puts "isHide: #{@isHide}"
 			file.puts "---"
 	end
 	exec "code #{@post_name}"

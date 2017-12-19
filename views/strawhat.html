@@ -8,7 +8,7 @@ title: Zerol's Paintings
     {% assign postPublishYear = post.date | date: '%Y' %}
     {% assign currentYear = "now" | date: '%Y' %}
     {% assign diffTime = currentYear | minus: postPublishYear %}	
-    {% if diffTime <= 1 %}
+    {% if diffTime <= 1 and post.category == 'StrawHat' %}
         <li>
             <span class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</span> 
             <span class="category">{{ post.tags}}</span>
