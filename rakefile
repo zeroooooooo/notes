@@ -34,6 +34,7 @@ task :new do
 			file.puts "author: \"#{@author}\""
 			file.puts "created: #{Time.now}"
 			file.puts "isHide: #{@isHide}"
+			file.puts "isDraft: true"
 			file.puts "---"
 	end
 	exec "code #{@post_name}"
