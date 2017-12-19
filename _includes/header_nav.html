@@ -1,26 +1,81 @@
 <div id="nav">
-		<div class="wrapper">
-			<div id="logo">
-				<a href="/">
-					<img src="/assets/image/zerol.png" />
-				</a>
-			</div>
-			<ul>
-				<li id="category-tech"><a href="/category/tech.html">Tech</a></li>
-				<li id="category-essay"><a href="/category/essay.html">Essay</a></li>
-				<li id="category-reading"><a href="/category/reading.html">Reading</a></li>
-				<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
-				<li id="category-discover"><a href="/views/discover.html">Discover</a></li>
-				<li id="category-quotes"><a href="/views/quotes.html">Quotes</a></li>
-				<li id="category-chocolates"><a href="/views/chocolates.html">Chocolates</a></li>
-				<li id="category-captain"><a href="/views/strawhat.html">Straw Hat </a></li>
-				<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
-				<li id="category-archive"><a href="/views/archive.html">Archive</a></li>
-			</ul>
+	<div class="wrapper">
+		<div id="logo">
+			<a href="/">
+				<img src="/assets/image/zerol.png" />
+			</a>
 		</div>
+		<ul id="nav-list">
+			<li id="category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li id="category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li id="category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
+			<li id="category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li>
+			<li id="category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<li id="category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+			</li>
+			<li id="category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li id="category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+		<div class="rx_icon" id="rx_icon"></div>
 	</div>
-	
-	<script>
+</div>
+<div class="drawer" id="drawer">
+	<div class="content">
+		<div class="header">
+			<div class="avatar"></div>
+			<div class="text">
+				<div class="field name">Zerol</div>
+				<div class="field info">Thinking, fast and slow</div>
+			</div>
+		</div>
+		<ul class="menu">
+			<li class="drawer-item" id="drawer-category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-design"><a href="/category/design.html">设计</a></li> -->
+			<li class="drawer-item" id="drawer-category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li class="drawer-item" id="drawer-category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
 	var category = location.pathname;
 	if (category == '/') {
 		// document.getElementById('category-all').style.textDecoration = "underline";
@@ -43,6 +98,4 @@
 	} else if (category == '/views/archive.html') {
 		document.getElementById('category-archive').style.textDecoration = "underline";
 	}
-	
-	</script>
-	
+</script>
