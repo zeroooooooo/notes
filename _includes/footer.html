@@ -8,23 +8,23 @@
     var category = location.pathname;
     if (category == '/') {
         // document.getElementById('drawer-category-all').style.textDecoration = "underline";
-    } else if (category == '/category/tech.html') {
+    } else if (category == '/category/tech.html' || (/test/).test(category)) {
         document.getElementById('drawer-category-tech').style.textDecoration = "underline";
-    } else if (category == '/category/essay.html') {
+    } else if (category == '/category/essay.html'|| (/essay/).test(category)) {
         document.getElementById('drawer-category-essay').style.textDecoration = "underline";
-    } else if (category == '/category/reading.html') {
+    } else if (category == '/category/reading.html' || (/reading/).test(category)) {
         document.getElementById('drawer-category-reading').style.textDecoration = "underline";
-    } else if (category == '/views/quotes.html') {
+    } else if (category == '/views/quotes.html' || (/quotes/).test(category)) {
         document.getElementById('drawer-category-quotes').style.textDecoration = "underline";
-    } else if (category == '/views/discover.html') {
+    } else if (category == '/views/discover.html' || (/discover/).test(category)) {
         document.getElementById('drawer-category-discover').style.textDecoration = "underline";
-    } else if (category == '/views/chocolates.html') {
+    } else if (category == '/views/chocolates.html' || (/chocolates/).test(category)) {
         document.getElementById('drawer-category-chocolates').style.textDecoration = "underline";
-    } else if (category == '/views/strawhat.html') {
+    } else if (category == '/views/strawhat.html' || (/strawhat/).test(category)) {
         document.getElementById('drawer-category-captain').style.textDecoration = "underline";
-    } else if (category == '/views/wiki.html') {
-        document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
-    } else if (category == '/views/archive.html') {
+    } else if (category == '/views/wiki.html' || (/wiki/).test(category)) {
+        // document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
+    } else {
         document.getElementById('drawer-category-archive').style.textDecoration = "underline";
     }
 </script>
