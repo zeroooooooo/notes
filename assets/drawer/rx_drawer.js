@@ -4,8 +4,6 @@ window.addEventListener("load", function (e) {
     iconElem = document.getElementById("rx_icon");
     drawer = new Drawer(drawerElem);
     drawer.setDrawerIcon(new DrawerIcon(iconElem));
-
-
 });
 
 /* Drawer Library */

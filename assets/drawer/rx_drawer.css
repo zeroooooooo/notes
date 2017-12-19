@@ -74,7 +74,6 @@
 }
 .drawer .content ul.menu li.item:after {
   content: "";
-  /* background-image: url('https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_brightness_high_black_24px.svg'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -100,8 +99,7 @@
   -moz-user-select: none;
   /* Internet Explorer/Edge */
   -ms-user-select: none;
-  /* Non-prefixed version, currently
-                                  not supported by any browser */
+  /* Non-prefixed version, currently not supported by any browser */
   user-select: none;
 }
 .drawer_bg {
