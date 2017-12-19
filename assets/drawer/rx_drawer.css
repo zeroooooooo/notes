@@ -75,8 +75,6 @@
 .drawer .content ul.menu li.drawer-item a {
     display: block;
     padding-left: 72px;
-    width: 100%;
-    height: 100%;
 }
 
 .drawer .content ul.menu li.drawer-item.subheader {
@@ -145,7 +143,7 @@
 }
 
 .drawer {
-    max-width: 320px;
+    max-width: 260px;
     width: 75%;
     height: 100%;
     left: 0px;
