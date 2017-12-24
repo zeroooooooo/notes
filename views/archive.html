@@ -4,15 +4,15 @@ title: Zerol's Paintings
 ---
 
 <ul class="posts">
-		{% assign techPosts = site.categories.Tech %}
-		{% assign essayPosts = site.categories.Essay  %}
-		{% assign designPosts = site.categories.Design %}
-		{% assign readingPosts = site.categories.Reading %}
-		{% assign discoverPosts = site.categories.Discover %}
-		{% assign strawHatPosts = site.categories.StrawHat  %}
-		{% assign archivePosts = techPosts | concat: essayPosts | concat: readingPosts | concat: strawHatPosts %}
+		{% assign techPosts = site.categories.Tech | compact %}
+		{% assign essayPosts = site.categories.Essay | compact %}
+		{% assign designPosts = site.categories.Design | compact %}
+		{% assign readingPosts = site.categories.Reading | compact %}
+		{% assign discoverPosts = site.categories.Discover | compact %}
+		{% assign strawHatPosts = site.categories.StrawHat | compact  %}
+		{% assign archivePosts = techPosts | concat: essayPosts | concat: readingPosts | concat: strawHatPosts | concat: designPosts | concat: discoverPosts %}
 		{% assign posts = archivePosts | sort: 'date' | reverse %}
-
+		
 		{% for post in posts %}
 		{% assign curYear = post.date | date: '%Y' %}
 		{% assign previousPostIndex = forloop.index0 | minus: 1 %}
@@ -26,7 +26,7 @@ title: Zerol's Paintings
 		{% endif %}		
 		<li>
 			<span class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</span> 
-			<span class="category">{{post.type}}</span>
+			<span class="category">{{ post.category}}/{{post.type}}/{{post.tags}}</span>
 			<a href="{{ post.url }}">{{ post.title }}</a>
 		</li>
 		{% endfor %}
