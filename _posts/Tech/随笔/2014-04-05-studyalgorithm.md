@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 算法学习小组成立
-category: Tech
+category: Essay
 tags: 随笔
 type: Algorithm
 ---

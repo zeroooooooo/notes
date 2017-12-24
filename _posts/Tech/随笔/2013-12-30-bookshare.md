@@ -1,7 +1,7 @@
 ---
 layout: post
 title: BookShare
-category: Tech
+category: Essay
 tags: 随笔
 type: Project
 ---

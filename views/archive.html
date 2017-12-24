@@ -4,20 +4,30 @@ title: Zerol's Paintings
 ---
 
 <ul class="posts">
-		{% for post in site.posts %}
-		{% assign year = post.date | date: '%Y' %}
-		{% assign nyear = post.next.date | date: '%Y' %}
-		{% if post.category != 'Wiki' %}
-			{% if year != nyear %}
-				<div class="cnt">
-					<h3>{{ post.date | date: '%Y' }}</h3>
-				</div>
-			{% endif %}		
-			<li>
-				<span class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</span> 
-				<span class="category">{{ post.category}}/{{post.type}}/{{post.tags}}</span>
-				<a href="{{ post.url }}">{{ post.title }}</a>
-			</li>
-		{% endif %}	
+		{% assign techPosts = site.categories.Tech %}
+		{% assign essayPosts = site.categories.Essay  %}
+		{% assign designPosts = site.categories.Design %}
+		{% assign readingPosts = site.categories.Reading %}
+		{% assign discoverPosts = site.categories.Discover %}
+		{% assign strawHatPosts = site.categories.StrawHat  %}
+		{% assign archivePosts = techPosts | concat: essayPosts | concat: readingPosts | concat: strawHatPosts %}
+		{% assign posts = archivePosts | sort: 'date' | reverse %}
+
+		{% for post in posts %}
+		{% assign curYear = post.date | date: '%Y' %}
+		{% assign previousPostIndex = forloop.index0 | minus: 1 %}
+		{% assign previousPost = posts[previousPostIndex] %}
+		{% assign previousPostYear = previousPost.date | date: '%Y' %}
+
+		{% if curYear != previousPostYear and forloop.index0 != 0 %}
+			<div class="cnt">
+				<h3>{{ post.date | date: '%Y' }}</h3>
+			</div>
+		{% endif %}		
+		<li>
+			<span class="date" cate="{{ post.categories }}">{{ post.date | date:"%Y-%m-%d" }}</span> 
+			<span class="category">{{post.type}}</span>
+			<a href="{{ post.url }}">{{ post.title }}</a>
+		</li>
 		{% endfor %}
 </ul>

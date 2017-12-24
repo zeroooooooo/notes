@@ -1,0 +1,440 @@
+---
+layout: post
+title: Javascript 高级编程读书浅记
+date: 2015-04-01 07:29:11
+category: Wiki
+tags: Javascript
+type: FE
+---
+
+### Js基础
++ js中变量类型属于松散型变量，既可以保存各种数据类型的变量
++ var vin; (vin被赋予undefined)
++ 用var定义时是当前作用域的变量,如果去掉var则会定义为一个全局变量
+
+### 基本数据类型
+
++ 基本数据类型(保存在栈内存,大小固定): undefined null boolean Number String
++ 复杂数据类型(保存在堆内存):object
++ 基本类型: Undefined NULL Boolean String Number (按值引用,可直接操作存储值) 复制变量值时是创建一个新的值并赋予他想要复制的值,这两个值之间没有关联,操作也不会影响对方.
++ 引用类型: Object (存储在内存中,不能直接操作内存,操作的是对象的引用) 引用类型的复制实际上是复制了一个指针指向共同的对象,所以操作会影响彼此
++ 函数的参数都是按值传递的
+	    基本类型的参数和复制变量一样
+	    引用类型的参数也是按值传递,不过因为他们都指向同一个对象所以在函数内部进行的改变操作会体现在所有引用了该对象的变量上面
+ 
+		typeof(用于检测数据类型 typeof 变量)
+		“undefined”: 当变量没有初始化
+		“boolean”,"String","Number"
+		"Object": 当变量是对象或null
+		“function”: 当变量是函数
+
+		instanceof(用于判断变量是属于什么对象类型)
+		变量 instanceof 对象
+### 数据类型
++ ##### undefined类型:	                                                   		只有undefined一个值，当变量没有初始化时就是undefined.因为没有定义的变量和变量没有赋值的结果都是undefined,所以最好所有变量都进行显示初始化,这样发生错误时就知道是没有定义变量而不是没有赋值。
+    
++ ##### null类型: 
+		只有null一个值，表示一个空的对象指针，所以typeof null = Object
+	    当想要让一个变量存储对象，可以在初始化时将其值赋值为null
+	    undefined派生自null，所以undefined==null 返回true(==比较符会先转换比较类型,===就不会)
+    
++ ##### Number类型:
+	    最小的数值: Number.MIN_VALUE
+	    最大的数值: Number.MAX_VALUE
+	    isFinite(数值): false为无穷,true为最小与最大之间的数
+	    NaN: not a number, isNaN(变量),判断一个变量是否是数字,类型可以转换比如“10”,会返回false,表示他是数字
+
+		数值转换:
+	    Number(变量)较复杂,所以使用parseInt(字符串,进制类型),parseFloat(字符串,进制类型)
+    
++ ##### String类型:
+	    toString(变量): 转换为字符串
+	    str.charAt(pos) 返回该位置的字符
+	    str.chatCodeAt(pos) 返回该位置的字符的编码
+	    str.concat(str0,str1,..)拼接字符串
+	    slice(i,j)i起始位置,j结束位置
+	    substring(i,j)i起始位置,j结束位置
+	    substr(i,j)起始位置,j返回个数
+	    str.trim()去除字符串的前后空格
+	    str.toLowerCase()
+	    str.toUpperCase()
+	    str.match(正则表达式或RegExp对象) 返回一个数组
+	    str.search(正则表达式或RegExp对象) 返回第一个匹配值
+	    str.replace()
+	    str.split(分隔符) 将字符串分割成数组
+	    encodeURL(url) 对空格进行编码
+	    decodeURL(url) 对encodeURL的编码字符进行解码
+	    encodeURLComponent(url) 对所有非字母字符进行编码,所以不要对整个url进行该编码,而应对添加在url后面的参数进行编码
+	    decodeURLComponent(url) encodeURLComponent的编码字符进行解码
+	    
+	    eval(执行语句) 存在危险,要注意
+
++ ##### Math类型:
+	    Math.min(item0,item1,..),Math,max(item0,item1,..)
+	    Math.min.apply(Math,array); 在数组中求得最小值
+	    Math.cell(value) 向上舍入
+	    Math.floor(value) 向下舍入
+	    Math.round(value) 四舍五入
+	    Math.random() 返回0~1之间的一个数，不包括0和1
+
++ ##### function类型:
+    	数的参数存储在arguments这个对象中,可以通过遍历这个对象获得或有参数,所以在函数传参是不一定需要与函数定义是传入相同个数的参数。
+
++ ##### Array类型：
+	    检测变量是否属于Array,Array.isArray().
+		Array.join('char')会将数组各项以字符char隔开,用于将数组转换成字符串
+		push(),pop()添加或移除数组尾项
+		unshift(),shift()添加或移除数组首项
+		array.reverse(),将数组元素倒置
+		array.sort(fuction),可以自定义比较函数
+		array1.concat(arr2,arr3,...)可以将多个数组进行拼接
+		array.slice(i,j)返回数组位置i,j之间的部分,若j没有则至末尾,参数为负数的话从后面开始算,不会改变原来的数组，返回的是删除的项
+		splice会改变原来的数组，返回的是一个数组，包涵删除的项
+	    删除: splice(i,j) 删除的起始位置i删除的项数j
+	    插入: splice(i,j,arr,...) 起始位置i,要删除的项数j,要插入的项
+	    替换: splice(i,j,arr,..)  起始位置i,要删除的项数j,要插入的项
+	    indexOf(item), lastIndexOf(item) 要查找的项的位置(向前和向后)
+		array.map(function(item,index,array){
+			return item*3;
+		});//这样子可以将原数组每一项的值进行整体改变
+	    
+	    array.forEach(function(item,index,array){
+	       数组的循环方法
+	       doSomething();
+	    });
+	    数组收缩
+	    reduce(function(pre,cur,index,array){
+	        
+	    });从前往后
+	    reduceRight() 从后往前
+
++ ##### Date类型:(从1970年1月1日零时到当前时间所经过的毫秒秒数)
+	    创建: var now = new Date();获得当前的时间和日期
+	    Date.now() 获得执行该函数时的时间和日期的毫秒数
+
++ ##### RegExp:(正则表达式)
+	    var reg = /表达式/标志 (字面量方法,共用一个RegExp实例)
+	    var reg = new RegExp(表达式,标志) 每次调用都会生成一个新的实例,最好用这种方法
+	    标志: g = global 全局查找, i = case insensitive 忽略大小写, m = multiline 多行查找
+
++ ##### Function类型(实际上是一个对象):
+	    定义方法(解析器优读取函数声明使其在执行任何代码前可用,而函数表达式则要等到执行到它的代码行才会执行):
+	    function Hi(){} 函数声明的方法
+	    var Hi = function() 函数表达式的方法(就跟定义变量一样)
+	    
+	    arguments: 存储函数的参数数组
+	    callee指向拥有当前arguments对象的函数(arguments.callee指向正在执行的函数指针)
+		caller指向调用当前函数或对象的的对象或函数
+		
+	    this指向当前执行环境对象
+
+		call和apply方法用来改变当前函数运行的执行环境
+		function.apply(this,array);第二的参数是数组
+	    function.apply(想要改变的执行环境的对象)
+	    function.call(想要改变的执行环境的对象)
+	    function.call(this,item0,item1,item2,..);要传递的参数必须一个一个写入
+	    fun.call(执行环境,参数)
+		call的参数是非数组,apply的参数是数组
+		fun1 = fun.bind(执行环境)会将函数fun绑定在给定的执行环境中赋给fun1
+    
++ ##### Object类型:
+	    创建方法: new Object()
+	            对象字面量(适用于多属性的对象变量快捷定义)
+	            var object = {
+	                key: value,
+	                ...
+	            };
+	    遍历方法:
+	        for-in
+	        for (var propName in object){
+	            console.log(propName)
+	        }
+	    
+	    构造函数首字母应该大写，其他函数则为小写
+
+### 面向对象
+#### 构建对象的方法:
+	
++ ##### 工厂模式(所有对象的原型均是Object,不能区分对象类别):
+		function createObj(name,type){
+			var o = new Object();
+			o.name = name;
+			o.type = type;
+			o.sayName = function(){
+				return this.name;
+			}
+			
+			return o;
+		}
+	
++ ##### 构造函数模式(函数名首字母大写表示该函数是一个类,可以创建有独立标识的对象类型):
+		function Obj(name,type){
+			this.name = name;
+			this.type = type;
+			this.sayName = function(){
+				return this.name;
+			}
+		}
+		//若不使用new声明,则声明的对象属于window
+		var obj = new Obj('','');
+		缺点:
+		每声明一个对象,对象中的方法就会重新创建一个,占用资源,改进如下,将方法定义在外面:
+		function Obj(name,type){
+			this.name = name;
+			this.type = type;
+			this.sayName = sayName;
+		}
+		function sayName(){
+			return this.name;
+		}
+	
++ ##### 原型模式(所有实例共享原型的方法和属性,如果实例进行相同名字的赋值或定义则会覆盖原型的但不会改变原型的):
+		function Obj(){}
+		Obj.prototype.name = "";
+		Obj.prototype.sayName = function(){
+			return this.name;
+		}
+		var obj = new Obj();
+		obj.hasOwnProterty(name);//可以判断属性是否属于实例自己的,结合in方法可以判断属性是在实例中还是在原型中
+		
+		改进:
+		function Obj(){}
+		Obj.prototype = {
+			constructor: Obj,
+			name: 'name',
+			friends: ['one', 'two'],
+			sayName: function(){
+				return this.name
+			}
+		}
+	
+	缺点:当原型中存在引用类型时,会影响实例之间的实际值即某一个实例对引用类型的值进行了改变会直接影响到其他的实例
+	
++ ##### 原型混合构造(解决上面的问题,构造模式定义属性,原型模式定义方法):
+		function Obj(name,type){
+			this.name = name;
+			this.type = type;
+		}
+		Obj.prototype = {
+			constructor: Obj,
+			sayName: function(){
+				return this.name;
+			}
+		}
+	
++ ##### 动态原型:
+		function Obj(name,type){
+			this.name = name;
+			this.type = type;
+			
+			//第一次声明实例时初始化
+			if(typeof this.sayName != "function"){
+				//不能用字面量重写原型
+				Obj.prototype.sayName = function(){
+					return this.name;
+				}
+			}
+		}
+
+### 继承
+		##组合继承:
+		function Parents(name, type){
+			this.name = name;
+			this.type = type;
+		}
+		Parents.prototype.sayName = function(){
+			return this.name;
+		};
+		
+		//调用父类的构造函数
+		function Son(name, type, x){
+			Parents.call(this, name, type);
+			//添加自己的属性
+			this.x = x;
+		} 
+		//继承父类的原型
+		Son.prototype = new Parents();
+		//添加自己的方法
+		Son.prototype.Sayhehe = function(){
+			return 'hehe';
+		};
+
+### 闭包(闭包只能取得包含函数中的变量的最后一个值)
+	闭包使用过多会占据大量内存
+	有权访问另一个函数作用域中的变量的函数
+		function p(){
+			for(var i = 0; i < 10; ++i){
+				ans[i] = function(num){//此刻这个函数是包含函数
+					return function(){ //在定义一个匿名函数
+						return num;
+					};
+				}(i)
+			}
+		}
+    如果像下面这样子写的话就只能返回i=10的数组，因为i最后的值为10
+		function p(){
+		    var ans = new Array();
+		    for(var i = 0; i < 10; ++i){
+		        ans[i] = function(){
+		            return i;
+		        }
+		    }
+		    return ans;
+		}
+    
+    匿名函数的执行环境具有全局性,所以在函数内部的this会指向window,所以如果想要让this指向包含函数的执行环境,则应该在包含函数内将this的做一个备份,然后在匿名函数中调用备份即可
+
+### DOM
+	    childNodes: 子节点
+	    parentNode: 父节点
+	    previouSibling: 上一个节点
+	    nextSibling: 下一个节点
+	    firstNode,lastNode,hasChildNodes()查询是否有子节点
+	    appendChild() 添加子节点
+	    insertBefore(newNode,whichNode) 如果whichNode=null则与appendChild效果一致
+	    getElementById(),getElementsByTagName()
+	    getAttribute(),setAttribute()
+	    document.creatElement(type)
+	    document.createTextNode()
+	    normaize() 将一个父元素的所有子文本节点合并为一个节点
+	    使用DocumentFragment替代appendChild最后一次性将DocumentFragment直接添加到父元素中,可以防止浏览器反复渲染,得到优化
+	    innerHtml(不包含调用的元素),outerHtml(包涵调用的元素),innerText
+	    
+	    querySelector(CSS选择符) 返回一个
+	    querySelectorAll(CSS选择符) 返回NodeList
+    
+### 事件
+	    事件冒泡: 事件由具体的对象逐级向上传播
+	    事件捕获: 由上级逐渐靠近具体的对象
+	    DOM事件流: 事件捕获阶段 处于目标阶段 事件冒泡阶段
+	    
+	    事件处理程序:
+	    element.addEvenListener(事件类型{click..},function{事件处理函数},boolean)
+	    true表示在捕获阶段调用,false表示在冒泡阶段调用
+	    element.removeEventListener(事件类型,function,boolean)参数要与注册时一致
+	    因为如果在注册中使用匿名函数处理事件,则在移除事件时会无效(每一次定义的匿名函数都不一样),所以应该先将处理函数用函数表达式定义,再将定义的变量传入处理函数中.
+	    
+	    IE事件处理:
+	    element.attachEvent(事件类型,处理函数)
+	    element.detachEvent(事件类型,处理函数)
+	    
+	    事件对象。。
+	    
+	    推荐在事件冒泡阶段进行事件处理
+
+### Json
+	    Json.stringify(js对象)序列化为Json字符串
+	    Json.parse(Json字符串) 转化为js对象
+
+### 杂记
++ ##### 杂记：
+		defer(之前的方法,只能用在外部js文件,在页面加载的同时加载js文件,但是不执行,执行顺序按照js的加载顺序进行，所以要注意加载的顺序)
+		async(html5的方法,同上，不过不能保证执行按照加载顺序进行)
+
+		script和img元素都是可以引进外部文件的标签,而且是任意源的,所以存在一定的安全隐患
+
+		三元操作符: var vin = 布尔表达式？true_value:false_value
+					
+		因为在js中没有块级作用域,所以在条件语句,循环语句等中定义新的变量时会将变量添加到离他们最近的执行环境中.
+    
++ ##### 性能优化:
+		使用DocumentFragment添加子元素
+		用join代替+进行字符串拼接
+		尽可能使用css实现动画效果
+		使用Data-url(base64编码)代替src来显示图片,减少http请求
+		使用媒体查询来进行对应的尺寸的图片进行加载
+
++ ##### Ajax:
+		Get请求(通常用于查询):可以通过encodeURlComponent()进行参数编码使得url规范化
+		Post请求(通常用于向服务器发送数据,数据量很多)
+		function GetXmlHttpObject()
+		{
+			var xmlHttp=null;
+			try
+			{
+				// Firefox, Opera 8.0+, Safari
+				xmlHttp=new XMLHttpRequest();
+			}
+			catch (e)
+			{
+				//Internet Explorer
+				try
+				{
+					 xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+				}
+				catch (e)
+				{
+					 xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+			}
+			return xmlHttp;
+		}
+		
+		function loadmore (cur) 
+		{
+			// alert('111');
+			xmlHttp = GetXmlHttpObject();
+			if (xmlHttp==null)
+			{
+				alert ("Browser does not support HTTP Request")
+				return;
+			}
+			var url="test.php";
+			//true是异步,false是同步即必须等服务器有回应才会进行下面的代码执行
+			xmlHttp.open("POST",url,true);
+			//application/x-www-form-urlencoded:以表单的形式提交
+			xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+			xmlHttp.send(null);
+			xmlHttp.onreadystatechange=showmore;
+		}
+		
+		function showmore() 
+		{
+			//4已完成所有数据的接收
+			//xmlHttp.status >= 200 && xmlHttp < 300 || xmlHttp == 304会更好
+			//304表示缓存在浏览器中未更改
+			//200表示响应成功,不同浏览器数值不一样,所以定义在200~300之间
+			if (xmlHttp.readyState==4 && xmlHttp.status == 200)
+			{
+				var info = eval('('+xmlHttp.responseText+')');
+				var i = 0;
+
+				while(i < 2)
+				{
+					var content = info.dataList[i].content;
+					var name = info.dataList[i].name;
+					appendinfo(content,name);
+					$i++;
+				}
+			}
+		}
+
++ ##### 跨域
+		jsonp(通过动态创建script标签或引入别的域的文件,在调用回调函数即可):
+		<script>
+			function jsonpCallback(result){
+	        } 
+	    </script> 
+	    <script type="text/javascript" src="domain.com?callback=jsonpCallback"></script>
+	
++ ##### 垂直剧中:
+		#content {
+			position:absolute;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			margin:auto;
+			height:240px;
+			width:70%;
+		}
+	
+		在 content 元素外插入一个 div。设置此 div height:50%; margin-bottom:-contentheight/2;。
+		content 清除浮动，并显示在中间
+		<div id="floater"></div>
+		<div id="content">
+			Content here
+		</div>
+		#floater	{float:left; height:50%; margin-bottom:-120px;}
+		#content	{clear:both; height:240px; position:relative;}
+

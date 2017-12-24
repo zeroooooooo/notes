@@ -1,5 +1,5 @@
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-    #nav-list {
+@media only screen and (min-device-width: 375px) and (max-device-width: 600px) {
+    #nav-wrapper {
         display: none;
     }
     #rx_icon {
@@ -188,7 +188,7 @@
 .rx_icon {
     display: none;
     position: relative;
-    float: right;
+    float: left;
     height: 46px;
     width: 46px;
 }
