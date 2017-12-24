@@ -1,12 +1,3 @@
-@media only screen and (min-device-width: 375px) and (max-device-width: 600px) {
-    #nav-wrapper {
-        display: none;
-    }
-    #rx_icon {
-        display: block;
-    }
-}
-
 .drawer .content {
     height: 100%;
     position: relative;
@@ -184,9 +175,16 @@
 
 
 /* Hamburger Library */
+.drawer-header-contarner {
+    display: none;
+}
+
+.drawer-header-contarner span {
+    line-height: 50px;
+    color: #fff;
+}
 
 .rx_icon {
-    display: none;
     position: relative;
     float: left;
     height: 46px;
@@ -232,4 +230,14 @@
     -o-transform-origin: right top;
     transform-origin: right top;
     top: 16px;
+}
+@media only screen 
+and (min-device-width : 300px) 
+and (max-device-width : 640px) {
+    #nav-wrapper {
+        display: none;
+    }
+    .drawer-header-contarner {
+        display: block;
+    }
 }
