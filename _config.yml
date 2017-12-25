@@ -1,3 +1,4 @@
+encoding: UTF-8
 highlighter: rouge
 
 exclude:
@@ -5,6 +6,9 @@ exclude:
   - Gemfile.lock
   - bin
   - _posts/Zerol
+  - totoro
+  - _post/Zerol
+  - slides
   - vendor
   - rakefile
 
