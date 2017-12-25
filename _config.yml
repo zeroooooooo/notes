@@ -4,6 +4,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - bin
+  - _posts/Zerol
   - vendor
   - rakefile
 
