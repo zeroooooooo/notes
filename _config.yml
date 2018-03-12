@@ -6,7 +6,7 @@ exclude:
   - Gemfile.lock
   - bin
   - _posts/Zerol
-  - totoro
+  # - totoro
   - _post/Zerol
   - slides
   - vendor

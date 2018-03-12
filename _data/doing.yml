@@ -1,6 +1,20 @@
+- town: peaceful
+  src: //trello.com/b/F1gyL4zj/dawning
+  title: 这个时候的愿望只有一个 春天的时候能去看大熊猫
+  period: 
+   - time: 2018/01
+     content:
+      - type: 阅读
+        text: 斜杠创业家
+      - type: 阅读
+        text: 思考, 快与慢
+      - type: Health
+        text: 跑步/游泳
+      - type: Language
+        text: 英语
 - town: dawning
   src: //trello.com/b/F1gyL4zj/dawning
-  title: 一点一点遇见曙光
+  title: 这个时候的心情就像是清晨的曙光一般, 有所期待, 有所向往
   period: 
    - time: 2017/12
      content:
