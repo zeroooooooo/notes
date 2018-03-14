@@ -43,9 +43,9 @@ fi
 ```
 
 ### 工具版本管理
-* node版本管理: https://github.com/creationix/nvm
-* npm包源管理: https://github.com/Pana/nrm
-* 命令行工具: https://github.com/square/maximum-awesome
-* java版本管理: https://github.com/gcuisinier/jenv
-* python版本管理: https://github.com/pyenv/pyenv
+* [node版本管理](https://github.com/creationix/nvm)
+* [npm包源管理](https://github.com/Pana/nrm)
+* [命令行工具](https://github.com/square/maximum-awesome)
+* [java版本管理](https://github.com/gcuisinier/jenv)
+* [python版本管理](https://github.com/pyenv/pyenv)
 
