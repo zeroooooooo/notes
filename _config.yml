@@ -9,6 +9,7 @@ exclude:
   - _posts/Summary/daily
   - _posts/Summary/quarter
   - _posts/Slides
+  - xyz
   - slides
   - vendor
   - rakefile
