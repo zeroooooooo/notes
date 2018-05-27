@@ -1,1 +1,1 @@
-[Zerol's Notes](https://zerol.xyz) Capture the moments and record the train of thoughts.
+[Zerol's Notes](https://zerol.xyz) The Journey of Life。

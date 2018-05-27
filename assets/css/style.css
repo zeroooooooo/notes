@@ -129,7 +129,8 @@ div.wrapper {
 .wrapper.main {
 	background: white;
     box-shadow: 0 1px 4px rgba(0,0,0,.04);
-    border: 1px solid rgba(0,0,0,.09);
+	border: 1px solid rgba(0,0,0,.09);
+	margin-top: 46px;
 }
 
 #intro {
@@ -570,4 +571,11 @@ div#disqus_thread li ul li {
 	padding-left: 4px;
 	/*list-style: circle;*/
 	padding: 0;
+}
+
+.fixd-header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
 }

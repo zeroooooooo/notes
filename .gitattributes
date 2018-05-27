@@ -1,5 +1,5 @@
-# _drafts/* filter=git-crypt diff=git-crypt
-# totoro/* filter=git-crypt diff=git-crypt
-# slides/**/*zerol*.md filter=git-crypt diff=git-crypt
-# _posts/**/*zerol*.md filter=git-crypt diff=git-crypt
+_drafts/* filter=git-crypt diff=git-crypt
+xyz/* filter=git-crypt diff=git-crypt
+slides/**/*zerol*.md filter=git-crypt diff=git-crypt
+_posts/**/*zerol*.md filter=git-crypt diff=git-crypt
 # _posts/Zerol/* filter=git-crypt diff=git-crypt
