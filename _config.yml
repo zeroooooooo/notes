@@ -5,9 +5,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - bin
-  - _posts/Zerol
-  # - totoro
-  - _post/Zerol
+  - _post/Oyster/daily
+  - _post/Oyster/quarter
   - slides
   - vendor
   - rakefile
