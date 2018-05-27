@@ -7,7 +7,10 @@
 .drawer .content .header {
     height: 108px;
     background: #343642;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .drawer .content .header .avatar {
@@ -51,6 +54,7 @@
     padding: 8px 0;
     list-style: none;
     margin: 0;
+    margin-top: 108px;
 }
 
 .drawer .content ul.menu li.drawer-item {

@@ -5,8 +5,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - bin
-  - _post/Oyster/daily
-  - _post/Oyster/quarter
+  - _post/Journey/letters
+  - _post/Summary/daily
+  - _post/Summary/quarter
+  - _post/Slides
   - slides
   - vendor
   - rakefile

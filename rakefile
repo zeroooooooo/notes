@@ -12,30 +12,30 @@ task :new do
 	@type = STDIN.gets.chomp
 	puts "请输入 tags 分类, 以空格隔开："
 	@tags = STDIN.gets.chomp
-	puts "是否不展示该文章："
-    @isHide = STDIN.gets.chomp
+	# puts "是否不展示该文章："
+    # @isHide = STDIN.gets.chomp
 	@slug = "#{@url}"
 	@slug = @slug.downcase.strip.gsub(' ', '-')
 	@date = Time.now.strftime("%F")
 	# @post_name = "_posts/#{@categories}/#{@type}/#{@tags}/#{@date}-#{@slug}.md"
 	@post_name = "_drafts/#{@date}-#{@slug}.md" #创建草稿
-	@author = "Zerol"
+	@author = "zerol"
 	if File.exist?(@post_name)
 			abort("文件名已经存在！创建失败")
 	end
 	FileUtils.touch(@post_name)
 	open(@post_name, 'a') do |file|
-			file.puts "---"
-			file.puts "layout: post"
-			file.puts "title: \"#{@name}\""
-            file.puts "tags: #{@tags}"
-			file.puts "type: #{@type}"
-			file.puts "category: #{@categories}"
-			file.puts "author: \"#{@author}\""
-			file.puts "created: #{Time.now}"
-			file.puts "isHide: #{@isHide}"
-			file.puts "isDraft: true"
-			file.puts "---"
+		file.puts "---"
+		file.puts "layout: post"
+		file.puts "title: \"#{@name}\""
+		file.puts "tags: #{@tags}"
+		file.puts "type: #{@type}"
+		file.puts "category: #{@categories}"
+		file.puts "author: \"#{@author}\""
+		file.puts "created: #{Time.now}"
+		# file.puts "isHide: #{@isHide}"
+		# file.puts "isDraft: true"
+		file.puts "---"
 	end
 	exec "code #{@post_name}"
 end
