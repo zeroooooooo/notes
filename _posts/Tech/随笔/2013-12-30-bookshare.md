@@ -4,6 +4,8 @@ title: BookShare
 category: Essay
 tags: 随笔
 type: Project
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### BookShare图书分享平台

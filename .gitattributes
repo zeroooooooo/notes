@@ -1,10 +1,4 @@
 _drafts/* filter=git-crypt diff=git-crypt
 xyz/* filter=git-crypt diff=git-crypt
-_posts/Journey/letters/* filter=git-crypt diff=git-crypt
 _posts/Slides/* filter=git-crypt diff=git-crypt
-_posts/Summary/daily/* filter=git-crypt diff=git-crypt
-_posts/Summary/quarter/* filter=git-crypt diff=git-crypt
 xyz/* filter=git-crypt diff=git-crypt
-slides/**/*zerol*.md filter=git-crypt diff=git-crypt
-_posts/**/*zerol*.md filter=git-crypt diff=git-crypt
-# _posts/Zerol/* filter=git-crypt diff=git-crypt

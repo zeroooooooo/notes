@@ -2,18 +2,22 @@ task :default => :new
 require 'fileutils'
 desc "创建新 post"
 task :new do
-  puts "请输入要创建的 post URL："
-	@url = STDIN.gets.chomp
+  	puts "请输入要创建的 post URL："
+	@url = STDIN.gets.chomp || '草稿'
 	puts "请输入 post 标题："
-	@name = STDIN.gets.chomp
-    puts "请输入 category 分类, 以空格隔开："
-	@categories = STDIN.gets.chomp
-	puts "请输入 type 分类, 以空格隔开："
-	@type = STDIN.gets.chomp
-	puts "请输入 tags 分类, 以空格隔开："
-	@tags = STDIN.gets.chomp
+	@name = STDIN.gets.chomp || '草稿'
+    puts "请输入 category (Essay/Wiki/Tech/Discover/Reading/Design) 分类, 以空格隔开："
+	@categories = STDIN.gets.chomp || 'Tech'
+	puts "请输入 type (project/算法/。。) 分类, 以空格隔开："
+	@type = STDIN.gets.chomp || '随记'
+	puts "请输入 tags(leetcode/。。) 分类, 以空格隔开："
+	@tags = STDIN.gets.chomp || '随记'
 	# puts "是否不展示该文章："
-    # @isHide = STDIN.gets.chomp
+	# @isHide = STDIN.gets.chomp
+	puts "是否允许使用Gitment评论该文章："
+	@isUseGitComment = STDIN.gets.chomp || false
+	puts "是否允许使用Disqus评论该文章："
+    @isUseDisqusComment = STDIN.gets.chomp || false
 	@slug = "#{@url}"
 	@slug = @slug.downcase.strip.gsub(' ', '-')
 	@date = Time.now.strftime("%F")
@@ -21,7 +25,7 @@ task :new do
 	@post_name = "_drafts/#{@date}-#{@slug}.md" #创建草稿
 	@author = "zerol"
 	if File.exist?(@post_name)
-			abort("文件名已经存在！创建失败")
+		abort("文件名已经存在！创建失败")
 	end
 	FileUtils.touch(@post_name)
 	open(@post_name, 'a') do |file|
@@ -35,6 +39,8 @@ task :new do
 		file.puts "created: #{Time.now}"
 		# file.puts "isHide: #{@isHide}"
 		# file.puts "isDraft: true"
+		file.puts "isUseGitComment: #{@isUseGitComment}"
+		file.puts "isUseDisqusComment: #{@isUseDisqusComment}"
 		file.puts "---"
 	end
 	exec "code #{@post_name}"

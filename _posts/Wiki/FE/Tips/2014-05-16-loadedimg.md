@@ -4,6 +4,8 @@ title: 图片预加载
 category: Wiki
 tags: Tips
 type: FE
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### 情景

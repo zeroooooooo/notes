@@ -7,6 +7,8 @@ category: Wiki
 author: "Zerol"
 created: 2017-12-25 12:50:40 +0800
 isHide: false
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### Mac开发环境配置笔记
@@ -40,6 +42,24 @@ brew list
 if [ -f `brew --prefix`/etc/bash_completion ]; then
 . `brew --prefix`/etc/bash_completion
 fi
+```
+
+* git 自动添加不同文件夹的不同配置
+
+借助 [Conditional includes](https://git-scm.com/docs/git-config#_conditional_includes)
+```base
+Global config ~/.gitconfig
+
+[user]
+    name = name
+    email = email
+
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
+
+Work specific config ~/work/.gitconfig
+[user]
+    email = work email
 ```
 
 ### 工具版本管理

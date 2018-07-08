@@ -4,6 +4,8 @@ title: MIME types
 category: Wiki
 tags: Base
 type: FE
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### MIME types

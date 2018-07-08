@@ -5,6 +5,8 @@ date: 2015-04-01 07:29:11
 category: Wiki
 tags: Javascript
 type: FE
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### Js基础

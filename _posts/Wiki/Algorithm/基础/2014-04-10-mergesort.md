@@ -4,6 +4,8 @@ title: 归并排序
 category: Wiki
 tags: 基础
 type: Algorithm
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### 归并排序的基本思想

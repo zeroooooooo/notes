@@ -4,6 +4,8 @@ title: Phaser学习笔记
 category: Wiki
 tags: Phaser 
 type: Game
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### Phaser例子学习笔记

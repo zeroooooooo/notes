@@ -5,12 +5,8 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - bin
-  - _posts/Journey/letters
-  - _posts/Summary/daily
-  - _posts/Summary/quarter
   - _posts/Slides
   - xyz
-  - slides
   - vendor
   - rakefile
 

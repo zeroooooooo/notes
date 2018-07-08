@@ -4,6 +4,8 @@ title: Remove Duplicates from Sorted List
 category: Wiki
 tags: Leecode
 type: Algorithm
+isUseGitComment: true
+isUseDisqusComment: false
 ---
 
 ### 题目
