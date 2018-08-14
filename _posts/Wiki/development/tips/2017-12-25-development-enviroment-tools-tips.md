@@ -35,8 +35,7 @@ git config --global user.email "your_email@youremail.com"
 brew list
 ```
 * git自动补全
-
-``` bash
+```bash
 先安装bash-completion brew install bash-completion
 将下面的配置添加到~/.bash_profile若没有该文件则创建一个
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -44,19 +43,14 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 ```
 
-* git 自动添加不同文件夹的不同配置
-
-借助 [Conditional includes](https://git-scm.com/docs/git-config#_conditional_includes)
-```base
+* git 自动添加不同文件夹的不同配置[Conditional includes](https://git-scm.com/docs/git-config#_conditional_includes)
+```bash
 Global config ~/.gitconfig
-
 [user]
     name = name
     email = email
-
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
-
 Work specific config ~/work/.gitconfig
 [user]
     email = work email

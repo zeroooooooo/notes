@@ -4,8 +4,8 @@ title: 算法学习小组成立
 category: Essay
 tags: 随笔
 type: Algorithm
-isUseGitComment: true
-isUseDisqusComment: false
+isUseGitComment: false
+isUseDisqusComment: true
 ---
 
 ### 算法学习小组
