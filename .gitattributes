@@ -1,4 +1,5 @@
 _drafts/* filter=git-crypt diff=git-crypt
 xyz/* filter=git-crypt diff=git-crypt
-_posts/Slides/* filter=git-crypt diff=git-crypt
+_posts/Slides/**/* filter=git-crypt diff=git-crypt
+slides/**/* filter=git-crypt diff=git-crypt
 xyz/* filter=git-crypt diff=git-crypt
