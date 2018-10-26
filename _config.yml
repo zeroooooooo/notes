@@ -6,6 +6,7 @@ exclude:
   - Gemfile.lock
   - bin
   - _posts/Slides
+  - slides
   - xyz
   - vendor
   - rakefile
