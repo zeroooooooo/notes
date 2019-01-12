@@ -4,8 +4,8 @@ title: 快速排序
 category: Wiki
 tags: 基础
 type: Algorithm
-isUseGitComment: true
-isUseDisqusComment: false
+isUseGitComment: false
+isUseDisqusComment: true
 ---
 
 ### 快速排序的基本思想

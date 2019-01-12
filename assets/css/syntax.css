@@ -13,7 +13,9 @@
     border-radius: 3px;
     padding: 20px; 
     background: #343642;
+    /* background: #616B7E; */
     color: #C1C2C3;
+    /* color: #969DAA; */
   }
   .highlight .hll { background-color: #ffc; }
   .highlight .gd { color: #2e3436; background-color: #0e1416; }

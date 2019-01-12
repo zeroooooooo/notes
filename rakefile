@@ -39,8 +39,8 @@ task :new do
 		file.puts "created: #{Time.now}"
 		# file.puts "isHide: #{@isHide}"
 		# file.puts "isDraft: true"
-		file.puts "isUseGitComment: #{@isUseGitComment}"
-		file.puts "isUseDisqusComment: #{@isUseDisqusComment}"
+		file.puts "isUseGitComment: #{@isUseGitComment || false}"
+		file.puts "isUseDisqusComment: #{@isUseDisqusComment || false}"
 		file.puts "---"
 	end
 	exec "code #{@post_name}"

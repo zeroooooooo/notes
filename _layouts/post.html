@@ -18,19 +18,20 @@
 				<div class="cnt">
 					{{ content }}
 					<br />
-					{% if page.category == 'Tech' or page.category == 'Discover' or page.category == 'StrawHat' or page.category == 'Wiki' %}
+					{% if page.category == 'Tech' or page.category == 'Reading' or page.category == 'StrawHat' or page.category == 'Wiki' %}
 					<div class="cc-tips">
 						<br>
-						<p>------ω------</p>
+						<!-- <p>------ω------</p> -->
+						<p>--EOF--</p>
 						<br>
 						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢。</p>
 					</div>
 					{% endif %}
 				</div>				
-				{% if page.isUseGitComment == true %}
-					{% include issues.html %}
-				{% elsif page.isUseDisqusComment == true %}
+				{% if page.isUseDisqusComment == true %}
 					{% include comment.html %}
+				{% elsif page.isUseGitComment == true %}
+					{% include issues.html %}
 				{% endif %}
 			</div>
 			{% include footer.html %}

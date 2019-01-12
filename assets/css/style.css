@@ -47,17 +47,21 @@ html {
 body {
 	font-family:Helvetica, Arial, "Hiragino Sans GB", sans-serif;
 	-webkit-text-size-adjust: none; /* 禁止 Safari 自动调整字体，会影响到代码段的表现 */
-	background: #f4f4f4;
-	color: rgba(0, 0, 0, 0.8);
+	/* background: #f4f4f4;
+	color: rgba(0, 0, 0, 0.8); */
+	background: #E8ECF0;
+	color: #535353;
 }
 h2, h3, h4, h5, h6 {
-	color:#333333;
+	/* color:#333333; */
+	color: #535353;
 }
 p, h2, h3, h4, h5, h6, ul {
 	margin:0;
 }
 a {
-	color:#000000;
+	/* color:#000000; */
+	color: #535353;
 	text-decoration:none;
 }
 
@@ -84,6 +88,7 @@ h1 a:hover {
 #nav {
 	overflow: hidden;
 	background: #343642;
+	/* background: #616B7E; */
 	height: 46px;
 }
 
@@ -232,7 +237,8 @@ p.nav + ul, p.nav + div {
 }
 
 ul.posts li a {
-	color:#000;
+	/* color:#000; */
+	color: #616B7E;
 }
 
 ul.index li {
@@ -318,16 +324,19 @@ div#content .cnt li ul li {
 }
 
 #content .cnt h3 {
-	background: #eee;
+	/* background: #eee; */
+	background: #E2E5EA;
 	padding: 15px;
 	margin: 20px -15px;
 	border: 0;
-	color: #000;
+	/* color: #000; */
+	color: #535353;
 }
 
 #content .cnt h4 {
 	font-size: 1.2em;
-	color: #000;
+	/* color: #000; */
+	color: #535353;
 }
 
 #content {
@@ -375,7 +384,9 @@ blockquote {
     padding: 15px 20px;
     margin-top: 10px;
     border-left: 5px solid #657b83;
-    background: #f6f6f6;
+		/* background: #f6f6f6; */
+		background: #F0F1F4;
+		color: #616B7E;
 }
 
 #content .cnt blockquote p {

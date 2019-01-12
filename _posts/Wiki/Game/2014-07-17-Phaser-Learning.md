@@ -3,9 +3,9 @@ layout: post
 title: Phaser学习笔记
 category: Wiki
 tags: Phaser 
-type: Game
-isUseGitComment: true
-isUseDisqusComment: false
+type: 游戏引擎
+isUseGitComment: false
+isUseDisqusComment: true
 ---
 
 ### Phaser例子学习笔记

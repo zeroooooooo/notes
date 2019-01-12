@@ -4,8 +4,8 @@ title: 全排列
 category: Wiki
 tags: 基础
 type: Algorithm
-isUseGitComment: true
-isUseDisqusComment: false
+isUseGitComment: false
+isUseDisqusComment: true
 ---
 
 ### 全排列
