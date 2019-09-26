@@ -11,6 +11,10 @@ exclude:
   - vendor
   - rakefile
 
+mermaid:
+  src: '/assets/mermaid/mermaid.min.js'
+  # src: 'https://cdn.rawgit.com/knsv/mermaid/6.0.0/dist/mermaid.js'
+
 kramdown:
   syntax_highlighter: rouge
   input: GFM

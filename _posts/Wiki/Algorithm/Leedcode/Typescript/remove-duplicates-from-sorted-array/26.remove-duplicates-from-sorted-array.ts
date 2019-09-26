@@ -61,7 +61,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-const removeDuplicates = (nums: Array<number>): number => {
+export const removeDuplicates = (nums: Array<number>): number => {
     let i = 1;
     for(; i < nums.length;) {
         if (nums[i] === nums[i-1]) {

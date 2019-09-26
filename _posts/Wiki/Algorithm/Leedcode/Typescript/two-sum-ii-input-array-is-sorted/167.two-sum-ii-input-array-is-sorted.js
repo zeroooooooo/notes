@@ -36,5 +36,5 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (numbers, target) {
+export var twoSum = function (numbers, target) {
 };
