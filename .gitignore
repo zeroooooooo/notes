@@ -2,5 +2,5 @@
 .jekyll-metadata
 _site/*
 *.DS_Store
-drafts/
+# drafts/
 *.lock
