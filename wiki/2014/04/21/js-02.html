@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title> Javascript面向对象 - Zerol's Notes</title>
+		
+		<link rel="shortcut icon" href="/assets/image/dark.png" type="image/x-icon">	
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/drawer/rx_drawer.css">
+		<link rel="stylesheet" href="/assets/mermaid/mermaid.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="//feeds.feedburner.com/zeroooooooo">
+	</head>
+	
+	<style>
+		.cc-tips {
+			margin-top: 20px;
+		}
+		.cc-tips p {
+			margin: 0 !important;
+			font-size: 13px;
+		}
+	</style>
+	<body>
+		<div id="nav" class="fixd-header">
+	<div class="wrapper" id="nav-wrapper">
+		<div id="logo">
+			<a href="/">
+				<img src="/assets/image/zerol.png" />
+			</a>
+		</div>
+		<ul id="nav-list">
+			<li id="category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li id="category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li id="category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
+			<!-- <li id="category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li id="category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li id="category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li id="category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li id="category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+	<div class="drawer-header-contarner">
+		<div class="rx_icon" id="rx_icon"></div>
+		<span class="title">Zerol</span>
+	</div>
+</div>
+<div class="drawer" id="drawer">
+	<div class="content">
+		<div class="header">
+			<div class="avatar"></div>
+			<a class="text" href="/">
+				<div class="field name">Zerol</div>
+				<div class="field info">有所期待。</div>
+			</a>
+		</div>
+		<ul class="menu">
+			<li class="drawer-item" id="drawer-category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-design"><a href="/category/design.html">设计</a></li> -->
+			<!-- <li class="drawer-item" id="drawer-category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li class="drawer-item" id="drawer-category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	var category = location.pathname;
+	if (category == '/') {
+		// document.getElementById('category-all').style.textDecoration = "underline";
+	} else if (category == '/category/tech.html') {
+		document.getElementById('category-tech').style.textDecoration = "underline";
+	} else if (category == '/category/essay.html') {
+		document.getElementById('category-essay').style.textDecoration = "underline";
+	} else if (category == '/category/reading.html') {
+		document.getElementById('category-reading').style.textDecoration = "underline";
+	} else if (category == '/views/quotes.html') {
+		document.getElementById('category-quotes').style.textDecoration = "underline";
+	} else if (category == '/views/discover.html') {
+		// document.getElementById('category-discover').style.textDecoration = "underline";
+	} else if (category == '/views/chocolates.html') {
+		// document.getElementById('category-chocolates').style.textDecoration = "underline";
+	} else if (category == '/views/strawhat.html') {
+		document.getElementById('category-captain').style.textDecoration = "underline";
+	} else if (category == '/views/wiki.html') {
+		// document.getElementById('category-wiki').style.textDecoration = "underline";
+	} else if (category == '/views/archive.html') {
+		document.getElementById('category-archive').style.textDecoration = "underline";
+	}
+</script>
+		<div class="wrapper main">
+			<div id="content">
+				<h2>Javascript面向对象</h2>
+				<div class="cnt">
+					<h3 id="定义对象的方式">定义对象的方式</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	##可以这样
+	var per = new Object();
+	per.name = "vin";
+	per.age = 1;
+
+	per.sayhello = function()      //定义对象的方法
+	{
+	    alert(this.name);
+	}
+
+	##或者
+	var per = {
+	    name: "vin",
+	    age: 2,
+
+	    sayHello: function()
+	    {
+	        alert(this.name);
+	    }
+	};
+</code></pre></div></div>
+
+<h3 id="定义访问器">定义访问器</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	##在新版本中可以如下定义访问器:
+	var book = {
+	    _year : 2014,     //前面有_符号表示只能通过类的方法访问
+	    name : "vin"
+	}
+
+	Object.defineProperty(book, "year",{
+	    get: function()
+	    {
+	        return this._year;
+	    }
+	    set: function(newValue)
+	    {
+	        this._year = newValue;
+	    }
+	});
+
+	##在旧版本中如下定义访问器:
+	book._defineGetter_("year", function(){
+	    return this._year;
+	});
+	book._defineSetter_("year", function(newValue){
+	    this._year = newValue;
+	});
+
+	##在新版本中可以如下定义拥有多个属性的对象
+	var book = {};
+	Object.defineProperties(book, {
+	    _year:{
+	        value: 2014
+	    },
+	    name:{
+	        value: "vin"
+	    },
+	    year: {
+	        get:function()
+	        {
+	            return this._year;
+	        }
+
+	        set: function()
+	        {
+	            this._year = 2008;
+	            this.name = "hehe";
+	        }
+	    }
+	});
+</code></pre></div></div>
+
+<h3 id="创建对象">创建对象</h3>
+
+<ul>
+  <li>
+    <h6 id="工厂模式通过一个函数来创建对象和对象的各种接口">工厂模式(通过一个函数来创建对象和对象的各种接口)</h6>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function createPerson(name, age, job)
+  {
+      var o = new Object();
+      o.name = name;
+      o.age = age;
+      a.job = job;
+
+      o.sayHello = function()
+      {
+          alert("hehe");
+      };
+
+      return o;
+  }
+
+  var p1 = createperson("a", 1, "b");
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <h5 id="构造函数模式名称首字母大写">构造函数模式(名称首字母大写):</h5>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function Person(name, age, job)
+  {
+      this.name = name;
+      this.age = age;
+      this.job = job;
+
+      this.sayHello = function()    //导致了没创建一个实例就会创建一个函数
+      {
+          alert("hehe");
+      };
+
+      //通过在里面定义在外面实现方式可以解决上面的问题,但是就不能体现出封装性
+      this.sayHello = sayHello;  
+  }
+
+  function sayHello()
+  {
+      alert("hehe");
+  }
+
+  var p1 = new Person("a", 1, "b");
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <h5 id="原型模式">原型模式:</h5>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function person() = {}
+
+  Person.prototype.name = "vin";
+  Person.prototype.age = 1;
+
+  Person.prototype.sayHello = function()
+  {
+      alert(this.name);
+  };
+
+  ##可以将其简化为下面的方法:
+  Person.prototype = {
+      name: "vin",
+      age: 1,
+      friends:["vin", "nannan"], //属性中存在数组属性时,因为在原型模式中属性是共有的,这样就存在缺陷
+
+      sayHello : function()
+      {
+          alert("hehe");
+      }
+  };
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <h5 id="构造函数模式和原型模式">构造函数模式和原型模式:</h5>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function Person(name, age, job)    //这样子每一个实例都有自己独立的属性集
+  {
+      this.name = name;
+      this.age = age;
+      this.job = job;
+      this.friends = ["vin", "nannan"];
+  }
+
+  Person.prototype = {              //同时有共享方法
+      constructor : Person,
+      sayHello : function(){
+          alert("hehe");
+      }
+  }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <h5 id="动态原型模式">动态原型模式:</h5>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function Person(name, age, job)   //这样就可将属性和方法都封装起来    
+  {
+      //属性
+      this.name = name;
+      this.age = age;
+      this.job = job;
+      this.friends = ["vin", "nannan"];
+
+      if(typeof this.sayHello != "function")  //第一次调用构造函数时执行
+      {
+          Person.prototype.sayHello = function()
+          {
+              alert("hehe");
+          };
+      }
+  }   
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="继承">继承</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	##组合继承:
+	function SuperType(name){
+	    this.name = name;
+	    this.color = ["green", "blue", "sky"];
+	}
+
+	SuperType.prototype.sayName = function(){
+	    alert(this.name);
+	};
+
+	function SubType(name, age){
+
+	    //继承属性
+	    SuperType.call(this, name);
+	    this.age = age;
+	}
+
+	//继承方法
+	SubType.prototype = new SuperType();
+	SubType.prototype.sayAge = function(){
+	    alert(this.age);
+	};
+</code></pre></div></div>
+
+					<br />
+					
+					<div class="cc-tips">
+						<br>
+						<!-- <p>------ω------</p> -->
+						<p>--EOF--</p>
+						<br>
+						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢。</p>
+					</div>
+					
+				</div>				
+				
+					<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://zeroooooooo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				
+			</div>
+			<div id="footer">
+    <p style="color:#ccc;font-size:12px;text-align: center">撃っていいのは、撃たれる覚悟のある奴だけだ</p>
+    <p style="clear:both"></p>
+</div>
+<script type="text/javascript" src="/assets/drawer/rx_drawer.js"></script>
+<script>
+    var category = location.pathname;
+    if (category == '/') {
+        // document.getElementById('drawer-category-all').style.textDecoration = "underline";
+    } else if (category == '/category/tech.html' || (/test/).test(category)) {
+        document.getElementById('drawer-category-tech').style.textDecoration = "underline";
+    } else if (category == '/category/essay.html'|| (/essay/).test(category)) {
+        document.getElementById('drawer-category-essay').style.textDecoration = "underline";
+    } else if (category == '/category/reading.html' || (/reading/).test(category)) {
+        document.getElementById('drawer-category-reading').style.textDecoration = "underline";
+    } else if (category == '/views/quotes.html' || (/quotes/).test(category)) {
+        document.getElementById('drawer-category-quotes').style.textDecoration = "underline";
+    } else if (category == '/views/discover.html' || (/discover/).test(category)) {
+        document.getElementById('drawer-category-discover').style.textDecoration = "underline";
+    } else if (category == '/views/chocolates.html' || (/chocolates/).test(category)) {
+        document.getElementById('drawer-category-chocolates').style.textDecoration = "underline";
+    } else if (category == '/views/strawhat.html' || (/strawhat/).test(category)) {
+        document.getElementById('drawer-category-captain').style.textDecoration = "underline";
+    } else if (category == '/views/wiki.html' || (/wiki/).test(category)) {
+        // document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
+    } else {
+        document.getElementById('drawer-category-archive').style.textDecoration = "underline";
+    }
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { 
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            availableFonts: [],
+            preferredFont: null,
+            webFont: "STIX-Web",
+            imageFont: null
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110574634-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110574634-1');
+</script>
+		</div>
+		<style>
+    .cc {
+        text-align: center;
+        margin-top: 30px;
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .cc a {
+        color: #ccc;
+    }
+</style>
+<div class="cc">
+    <p>© Sat Dec 02 2017, zerol</p>
+    <!-- <p>Tue, Dec 10, 2019</p> -->
+    <p>Thanks to <a href="https://jekyllrb.com/" target="_blank">jekyll's</a> great work and <a href="http://limboy.me/" target="_blank">limboy's</a> blog theme, they inspired me a lot.</p>
+</div>
+	</body>
+</html>

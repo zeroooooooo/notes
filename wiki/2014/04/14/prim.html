@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title> Prim算法 - Zerol's Notes</title>
+		
+		<link rel="shortcut icon" href="/assets/image/dark.png" type="image/x-icon">	
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/drawer/rx_drawer.css">
+		<link rel="stylesheet" href="/assets/mermaid/mermaid.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="//feeds.feedburner.com/zeroooooooo">
+	</head>
+	
+	<style>
+		.cc-tips {
+			margin-top: 20px;
+		}
+		.cc-tips p {
+			margin: 0 !important;
+			font-size: 13px;
+		}
+	</style>
+	<body>
+		<div id="nav" class="fixd-header">
+	<div class="wrapper" id="nav-wrapper">
+		<div id="logo">
+			<a href="/">
+				<img src="/assets/image/zerol.png" />
+			</a>
+		</div>
+		<ul id="nav-list">
+			<li id="category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li id="category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li id="category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
+			<!-- <li id="category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li id="category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li id="category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li id="category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li id="category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+	<div class="drawer-header-contarner">
+		<div class="rx_icon" id="rx_icon"></div>
+		<span class="title">Zerol</span>
+	</div>
+</div>
+<div class="drawer" id="drawer">
+	<div class="content">
+		<div class="header">
+			<div class="avatar"></div>
+			<a class="text" href="/">
+				<div class="field name">Zerol</div>
+				<div class="field info">有所期待。</div>
+			</a>
+		</div>
+		<ul class="menu">
+			<li class="drawer-item" id="drawer-category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-design"><a href="/category/design.html">设计</a></li> -->
+			<!-- <li class="drawer-item" id="drawer-category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li class="drawer-item" id="drawer-category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	var category = location.pathname;
+	if (category == '/') {
+		// document.getElementById('category-all').style.textDecoration = "underline";
+	} else if (category == '/category/tech.html') {
+		document.getElementById('category-tech').style.textDecoration = "underline";
+	} else if (category == '/category/essay.html') {
+		document.getElementById('category-essay').style.textDecoration = "underline";
+	} else if (category == '/category/reading.html') {
+		document.getElementById('category-reading').style.textDecoration = "underline";
+	} else if (category == '/views/quotes.html') {
+		document.getElementById('category-quotes').style.textDecoration = "underline";
+	} else if (category == '/views/discover.html') {
+		// document.getElementById('category-discover').style.textDecoration = "underline";
+	} else if (category == '/views/chocolates.html') {
+		// document.getElementById('category-chocolates').style.textDecoration = "underline";
+	} else if (category == '/views/strawhat.html') {
+		document.getElementById('category-captain').style.textDecoration = "underline";
+	} else if (category == '/views/wiki.html') {
+		// document.getElementById('category-wiki').style.textDecoration = "underline";
+	} else if (category == '/views/archive.html') {
+		document.getElementById('category-archive').style.textDecoration = "underline";
+	}
+</script>
+		<div class="wrapper main">
+			<div id="content">
+				<h2>Prim算法</h2>
+				<div class="cnt">
+					<h3 id="prim算法的基本思想">Prim算法的基本思想</h3>
+
+<p>Prim算法的基本思想是通过以一个点为起点比如v0开始,然后搜寻与v0相连的点,找出与其边距最短的点作为下一个加入做小生成树的点,然后就生成新的集合{v0, vx, …},没找到一个新的点,就再以这个点为中介向四周扩散,即通过以这个新点为中介将原先存储各点与v0的距离值进行比较,更新这个数组,然后再以新的距离数组重复上面的过程,步骤如下:</p>
+
+<ul>
+  <li>初始化存储各点到v0的距离,若距离存储为0的则表示该点已经纳入最小生成树</li>
+  <li>遍历当前的距离数组(除去值为0的点)找出与v0距离最短的点作为新的加入最小生成树的点,记录该点的位置k</li>
+  <li>将距离数组的k位置的值置为0表示k已经加入最小生成树</li>
+  <li>再一次遍历距离数组,不过此次以k位置作为中介将原值与a[k][j]进行比较,更新距离数组</li>
+  <li>
+    <p>重复2-4的过程直到点全部加入最小生成树中</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;iostream&gt;
+  #include &lt;vector&gt;
+  #define MAXVEX 9
+  #define INFINITY 65535
+  using namespace std;
+
+  vector&lt;int&gt; ans;
+  void prim(vector&lt;int&gt; a[], int nodeNum)
+  {
+      /*
+          使用lowcost数组记录图中的点是否已经加入最小生成树中,为0的时候即是已经加入了最小生成树中
+      */
+      int lowcost[MAXVEX] = {0}; 
+      int path[MAXVEX] = {0};  //用来存储最小生成树生成过程中的边选择
+
+      /*
+          首先进行初始化,以v0为起点,从v1开始将所有点与v0的距离存入lowcost中,若与v0相连则输入其边的权重,若没有则存为无穷
+      */
+      for (int i = 1; i &lt; nodeNum; ++i)
+      {
+          lowcost[i] = a[0][i];
+          path[i] = 0;              //一开始以v0为起点所以先初始化为0
+      }
+
+      /**/
+      for (int i = 1; i &lt; nodeNum; ++i)
+      {
+          int min = INFINITY;
+
+          //找出与{v0}点相连的最短的点
+          int j = 1, k = 0;
+          while( j &lt; nodeNum )
+          {
+              if (lowcost[j] != 0 &amp;&amp; lowcost[j] &lt; min)
+              {
+                  min = lowcost[j];
+                  k = j;
+              }
+              j++;
+          }
+          //找到与v0点距离最短的点以后将该点加入最小生成树中,即将lowcost[k]置为0
+          lowcost[k] = 0;
+          ans.push_back(k);
+
+          cout &lt;&lt; path[k] &lt;&lt; " " &lt;&lt; k &lt;&lt; endl;  //输出from-&gt;to的边加入最小生成树
+
+          //将新的点加入最小生成树后,以该点为中介将原先的lowcost数组的值与通过新点链接的点的距离进行比较
+          //更新lowcost的值,同时比较过程中,lowcost为0的点不加入比较,因为他们已经属于最小生成树的一员了
+          for (int j = 1; j &lt; nodeNum ; ++j)
+          {
+              if (lowcost[j] != 0 &amp;&amp; a[k][j] &lt; lowcost[j])
+              {
+                  lowcost[j] = a[k][j];
+                  // cout &lt;&lt; lowcost[j] &lt;&lt; " **** " &lt;&lt; endl;
+                  path[j] = k;                //更新路径记录的联通情况
+              }
+          }
+      }
+
+  }
+
+  int main()
+  {
+      vector&lt;int&gt; a[100];
+
+      int n, m, from, to, weight;
+      cin &gt;&gt; n &gt;&gt; m;
+      ans.push_back(0);
+      for (int i = 0; i &lt; n; ++i)
+      {
+          for (int j = 0; j &lt; n; ++j)
+          {
+              if ( i != j )
+              {
+                  a[i].push_back(INFINITY);
+              }
+              else
+              {
+                  a[i].push_back(0);
+              }
+          }
+      }
+
+      while( m-- )
+      {
+          cin &gt;&gt; from &gt;&gt; to &gt;&gt; weight;
+          a[from][to] = weight;
+          a[to][from] = weight;
+      }
+
+      for (int i = 0; i &lt; n; ++i)
+      {
+          for (int j = 0; j &lt; n; ++j)
+          {
+              cout &lt;&lt; a[i][j] &lt;&lt; " ";
+          }
+          cout &lt;&lt; endl;
+      }
+      prim(a, n);
+
+      for (int i = 0; i &lt; ans.size(); ++i)
+      {
+          cout &lt;&lt; ans[i] &lt;&lt; " -&gt; ";
+      }
+
+      cout &lt;&lt; endl;
+
+      getchar();
+      cin &gt;&gt; n;
+      return 0;
+
+  }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+					<br />
+					
+					<div class="cc-tips">
+						<br>
+						<!-- <p>------ω------</p> -->
+						<p>--EOF--</p>
+						<br>
+						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢。</p>
+					</div>
+					
+				</div>				
+				
+					<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://zeroooooooo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				
+			</div>
+			<div id="footer">
+    <p style="color:#ccc;font-size:12px;text-align: center">撃っていいのは、撃たれる覚悟のある奴だけだ</p>
+    <p style="clear:both"></p>
+</div>
+<script type="text/javascript" src="/assets/drawer/rx_drawer.js"></script>
+<script>
+    var category = location.pathname;
+    if (category == '/') {
+        // document.getElementById('drawer-category-all').style.textDecoration = "underline";
+    } else if (category == '/category/tech.html' || (/test/).test(category)) {
+        document.getElementById('drawer-category-tech').style.textDecoration = "underline";
+    } else if (category == '/category/essay.html'|| (/essay/).test(category)) {
+        document.getElementById('drawer-category-essay').style.textDecoration = "underline";
+    } else if (category == '/category/reading.html' || (/reading/).test(category)) {
+        document.getElementById('drawer-category-reading').style.textDecoration = "underline";
+    } else if (category == '/views/quotes.html' || (/quotes/).test(category)) {
+        document.getElementById('drawer-category-quotes').style.textDecoration = "underline";
+    } else if (category == '/views/discover.html' || (/discover/).test(category)) {
+        document.getElementById('drawer-category-discover').style.textDecoration = "underline";
+    } else if (category == '/views/chocolates.html' || (/chocolates/).test(category)) {
+        document.getElementById('drawer-category-chocolates').style.textDecoration = "underline";
+    } else if (category == '/views/strawhat.html' || (/strawhat/).test(category)) {
+        document.getElementById('drawer-category-captain').style.textDecoration = "underline";
+    } else if (category == '/views/wiki.html' || (/wiki/).test(category)) {
+        // document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
+    } else {
+        document.getElementById('drawer-category-archive').style.textDecoration = "underline";
+    }
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { 
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            availableFonts: [],
+            preferredFont: null,
+            webFont: "STIX-Web",
+            imageFont: null
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110574634-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110574634-1');
+</script>
+		</div>
+		<style>
+    .cc {
+        text-align: center;
+        margin-top: 30px;
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .cc a {
+        color: #ccc;
+    }
+</style>
+<div class="cc">
+    <p>© Sat Dec 02 2017, zerol</p>
+    <!-- <p>Tue, Dec 10, 2019</p> -->
+    <p>Thanks to <a href="https://jekyllrb.com/" target="_blank">jekyll's</a> great work and <a href="http://limboy.me/" target="_blank">limboy's</a> blog theme, they inspired me a lot.</p>
+</div>
+	</body>
+</html>

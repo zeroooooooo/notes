@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title> 堆排序 - Zerol's Notes</title>
+		
+		<link rel="shortcut icon" href="/assets/image/dark.png" type="image/x-icon">	
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/drawer/rx_drawer.css">
+		<link rel="stylesheet" href="/assets/mermaid/mermaid.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="//feeds.feedburner.com/zeroooooooo">
+	</head>
+	
+	<style>
+		.cc-tips {
+			margin-top: 20px;
+		}
+		.cc-tips p {
+			margin: 0 !important;
+			font-size: 13px;
+		}
+	</style>
+	<body>
+		<div id="nav" class="fixd-header">
+	<div class="wrapper" id="nav-wrapper">
+		<div id="logo">
+			<a href="/">
+				<img src="/assets/image/zerol.png" />
+			</a>
+		</div>
+		<ul id="nav-list">
+			<li id="category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li id="category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li id="category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
+			<!-- <li id="category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li id="category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li id="category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li id="category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li id="category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+	<div class="drawer-header-contarner">
+		<div class="rx_icon" id="rx_icon"></div>
+		<span class="title">Zerol</span>
+	</div>
+</div>
+<div class="drawer" id="drawer">
+	<div class="content">
+		<div class="header">
+			<div class="avatar"></div>
+			<a class="text" href="/">
+				<div class="field name">Zerol</div>
+				<div class="field info">有所期待。</div>
+			</a>
+		</div>
+		<ul class="menu">
+			<li class="drawer-item" id="drawer-category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-design"><a href="/category/design.html">设计</a></li> -->
+			<!-- <li class="drawer-item" id="drawer-category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li class="drawer-item" id="drawer-category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	var category = location.pathname;
+	if (category == '/') {
+		// document.getElementById('category-all').style.textDecoration = "underline";
+	} else if (category == '/category/tech.html') {
+		document.getElementById('category-tech').style.textDecoration = "underline";
+	} else if (category == '/category/essay.html') {
+		document.getElementById('category-essay').style.textDecoration = "underline";
+	} else if (category == '/category/reading.html') {
+		document.getElementById('category-reading').style.textDecoration = "underline";
+	} else if (category == '/views/quotes.html') {
+		document.getElementById('category-quotes').style.textDecoration = "underline";
+	} else if (category == '/views/discover.html') {
+		// document.getElementById('category-discover').style.textDecoration = "underline";
+	} else if (category == '/views/chocolates.html') {
+		// document.getElementById('category-chocolates').style.textDecoration = "underline";
+	} else if (category == '/views/strawhat.html') {
+		document.getElementById('category-captain').style.textDecoration = "underline";
+	} else if (category == '/views/wiki.html') {
+		// document.getElementById('category-wiki').style.textDecoration = "underline";
+	} else if (category == '/views/archive.html') {
+		document.getElementById('category-archive').style.textDecoration = "underline";
+	}
+</script>
+		<div class="wrapper main">
+			<div id="content">
+				<h2>堆排序</h2>
+				<div class="cnt">
+					<h3 id="堆排序是一种很神奇的排序">堆排序是一种很神奇的排序</h3>
+<h5 id="参考博客"><a href="//blog.csdn.net/xiaoxiaoxuewen/article/details/7570621">参考博客</a></h5>
+
+<p>这里使用的是最大堆的算法,堆排序的思想就是先将给定的序列构造成完全二叉树,然后对这棵二叉树的非叶子节点进行调整
+,就是将每一个非叶子与其子节点进行比较,不断的递归使得每一个非叶子节点都比其子节点大已达到最大堆,步骤如下:</p>
+
+<ul>
+  <li>建立最大堆,从最后一个非叶子节点开始进行堆调整</li>
+  <li>在堆调整的过程中,先将当前节点与左节点进行比较,更新最大值的位置,再与右节点进行比较,更新最大值的位置,如果最大值为当前节点本身,则说明这个地方是满足最大堆的,返回,若最大值的的位置有所更新,则交换当前节点与该最大值位置的值,然后对新的最大值位置进行堆调整</li>
+  <li>建完堆后,即可开始堆排序,堆排序的过程其实就是不断的将堆顶元素与最后一个元素进行交换,然后最新的序列进行最大堆调整,因为每次被换的是堆顶元素,所以每次调整时直接从堆顶位置1开始进行调整就好了</li>
+  <li>
+    <p>排完序后原序列已经更新,输出即可(下面的代码建立的堆的堆顶元素位置从1开始,所以原序列的值从位置1开始)</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;iostream&gt;
+  #include &lt;cmath&gt;
+  using namespace std;
+
+  /*
+      堆调整,每一次通过传入需要调整的位置和当前序列长度
+  */
+  void heapAdjust(int a[], int pos, int size)
+  {
+      int lNode = pos * 2;     //获取该节点的左节点位置
+      int rNode = pos * 2 + 1; //获取该节点的右节点的位置
+      int max = pos;           //因为要调整为最大堆,所以先假定最大值为当前节点
+      /*
+          如果是非叶子节点的话就进行调整,因为叶子节点已经没有可以比较的子节点
+      */
+      if ( pos &lt;= size/2)
+      {
+          if (lNode &lt;= size &amp;&amp; a[lNode] &gt; a[max])
+          {
+              max = lNode;
+          }
+          if (rNode &lt;= size &amp;&amp; a[rNode] &gt; a[max])
+          {
+              max = rNode;
+          }
+          if (max != pos)
+          {
+              //每次调整完以后,在对新的节点位置进行调整,因为每次调整都可能会改变原来的满足堆
+              swap(a[max], a[pos]);
+              heapAdjust(a, max, size);
+          }
+      }
+  }
+  /*
+      建立堆,这里建的是最大堆,建堆的过程其实就是建立二叉树的过程
+      即不断的调整非叶子节点的值,在序列中非叶子节点的位置为&lt;=size/2
+  */
+  void buildHeap(int a[], int size)
+  {
+      for (int i = size/2; i &gt;= 1 ; --i)
+      {
+          heapAdjust(a, i, size); //对每一个非叶子节点进行调整以生成最大堆
+      }
+  }
+
+  /*
+      堆排序,当最大堆建好以后,所谓的排序就是每次都将堆顶元素与最后一个元素交换,这样最大的元素
+      就会下沉到尾端,然后在对新的队列进行最大堆调整,重复这个过程直到序列中只剩下一个元素
+  */
+  void heapSort(int a[], int size)
+  {
+      buildHeap(a, size); //先建堆
+      for (int i = size; i &gt;= 1 ; --i)
+      {
+          swap(a[1], a[size]);       //每次都将堆顶元素与最后一个元素交换
+          heapAdjust(a, 1, --size);  //交换完以后,堆变成不满足,重新调整成为最大堆,此刻序列中只剩下size-1个元素了
+      }
+  }
+
+  int main()
+  {
+      int a[11] = {0,8, 1, 4, 9, 6, 3, 5, 2, 7, 0};
+      heapSort(a, 10);
+      for (int i = 1; i &lt;= 10; ++i)
+      {
+          cout &lt;&lt; a[i] &lt;&lt; ", ";
+      }
+      cout &lt;&lt; endl;
+      getchar();
+  }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+					<br />
+					
+					<div class="cc-tips">
+						<br>
+						<!-- <p>------ω------</p> -->
+						<p>--EOF--</p>
+						<br>
+						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢。</p>
+					</div>
+					
+				</div>				
+				
+					<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://zeroooooooo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				
+			</div>
+			<div id="footer">
+    <p style="color:#ccc;font-size:12px;text-align: center">撃っていいのは、撃たれる覚悟のある奴だけだ</p>
+    <p style="clear:both"></p>
+</div>
+<script type="text/javascript" src="/assets/drawer/rx_drawer.js"></script>
+<script>
+    var category = location.pathname;
+    if (category == '/') {
+        // document.getElementById('drawer-category-all').style.textDecoration = "underline";
+    } else if (category == '/category/tech.html' || (/test/).test(category)) {
+        document.getElementById('drawer-category-tech').style.textDecoration = "underline";
+    } else if (category == '/category/essay.html'|| (/essay/).test(category)) {
+        document.getElementById('drawer-category-essay').style.textDecoration = "underline";
+    } else if (category == '/category/reading.html' || (/reading/).test(category)) {
+        document.getElementById('drawer-category-reading').style.textDecoration = "underline";
+    } else if (category == '/views/quotes.html' || (/quotes/).test(category)) {
+        document.getElementById('drawer-category-quotes').style.textDecoration = "underline";
+    } else if (category == '/views/discover.html' || (/discover/).test(category)) {
+        document.getElementById('drawer-category-discover').style.textDecoration = "underline";
+    } else if (category == '/views/chocolates.html' || (/chocolates/).test(category)) {
+        document.getElementById('drawer-category-chocolates').style.textDecoration = "underline";
+    } else if (category == '/views/strawhat.html' || (/strawhat/).test(category)) {
+        document.getElementById('drawer-category-captain').style.textDecoration = "underline";
+    } else if (category == '/views/wiki.html' || (/wiki/).test(category)) {
+        // document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
+    } else {
+        document.getElementById('drawer-category-archive').style.textDecoration = "underline";
+    }
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { 
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            availableFonts: [],
+            preferredFont: null,
+            webFont: "STIX-Web",
+            imageFont: null
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110574634-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110574634-1');
+</script>
+		</div>
+		<style>
+    .cc {
+        text-align: center;
+        margin-top: 30px;
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .cc a {
+        color: #ccc;
+    }
+</style>
+<div class="cc">
+    <p>© Sat Dec 02 2017, zerol</p>
+    <!-- <p>Tue, Dec 10, 2019</p> -->
+    <p>Thanks to <a href="https://jekyllrb.com/" target="_blank">jekyll's</a> great work and <a href="http://limboy.me/" target="_blank">limboy's</a> blog theme, they inspired me a lot.</p>
+</div>
+	</body>
+</html>

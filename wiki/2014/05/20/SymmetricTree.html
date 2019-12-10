@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title> Symmetric Tree - Zerol's Notes</title>
+		
+		<link rel="shortcut icon" href="/assets/image/dark.png" type="image/x-icon">	
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/drawer/rx_drawer.css">
+		<link rel="stylesheet" href="/assets/mermaid/mermaid.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="//feeds.feedburner.com/zeroooooooo">
+	</head>
+	
+	<style>
+		.cc-tips {
+			margin-top: 20px;
+		}
+		.cc-tips p {
+			margin: 0 !important;
+			font-size: 13px;
+		}
+	</style>
+	<body>
+		<div id="nav" class="fixd-header">
+	<div class="wrapper" id="nav-wrapper">
+		<div id="logo">
+			<a href="/">
+				<img src="/assets/image/zerol.png" />
+			</a>
+		</div>
+		<ul id="nav-list">
+			<li id="category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li id="category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li id="category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
+			<!-- <li id="category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li id="category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li id="category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li id="category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li id="category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+	<div class="drawer-header-contarner">
+		<div class="rx_icon" id="rx_icon"></div>
+		<span class="title">Zerol</span>
+	</div>
+</div>
+<div class="drawer" id="drawer">
+	<div class="content">
+		<div class="header">
+			<div class="avatar"></div>
+			<a class="text" href="/">
+				<div class="field name">Zerol</div>
+				<div class="field info">有所期待。</div>
+			</a>
+		</div>
+		<ul class="menu">
+			<li class="drawer-item" id="drawer-category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-design"><a href="/category/design.html">设计</a></li> -->
+			<!-- <li class="drawer-item" id="drawer-category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li class="drawer-item" id="drawer-category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	var category = location.pathname;
+	if (category == '/') {
+		// document.getElementById('category-all').style.textDecoration = "underline";
+	} else if (category == '/category/tech.html') {
+		document.getElementById('category-tech').style.textDecoration = "underline";
+	} else if (category == '/category/essay.html') {
+		document.getElementById('category-essay').style.textDecoration = "underline";
+	} else if (category == '/category/reading.html') {
+		document.getElementById('category-reading').style.textDecoration = "underline";
+	} else if (category == '/views/quotes.html') {
+		document.getElementById('category-quotes').style.textDecoration = "underline";
+	} else if (category == '/views/discover.html') {
+		// document.getElementById('category-discover').style.textDecoration = "underline";
+	} else if (category == '/views/chocolates.html') {
+		// document.getElementById('category-chocolates').style.textDecoration = "underline";
+	} else if (category == '/views/strawhat.html') {
+		document.getElementById('category-captain').style.textDecoration = "underline";
+	} else if (category == '/views/wiki.html') {
+		// document.getElementById('category-wiki').style.textDecoration = "underline";
+	} else if (category == '/views/archive.html') {
+		document.getElementById('category-archive').style.textDecoration = "underline";
+	}
+</script>
+		<div class="wrapper main">
+			<div id="content">
+				<h2>Symmetric Tree</h2>
+				<div class="cnt">
+					<h3 id="题目">题目</h3>
+<p><a href="//oj.leetcode.com/problems/Symmetric-Tree/">原题: </a>Given a binary tree, isMirror whether it is a mirror of itself (ie, symmetric around its center).</p>
+
+<p><b>For example, this binary tree is symmetric:</b></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        1
+       / \
+      2   2
+     / \ / \
+    3  4 4  3
+</code></pre></div></div>
+
+<p><b>But the following is not:</b></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>        1
+       / \
+      2   2
+       \   \
+       3    3
+</code></pre></div></div>
+
+<p><b>题意: </b>
+判断给定的二叉树是否对称.</p>
+
+<h3 id="思路">思路</h3>
+<p>看代码应该很容易看懂的.</p>
+
+<h6 id="代码">代码</h6>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	bool isMirror(TreeNode *l, TreeNode *r)
+    {
+        if(l==NULL &amp;&amp; r==NULL)
+        {
+            return true;
+        }
+        if(l==NULL || r==NULL)
+        {
+            return false;
+        }
+        if(l-&gt;val != r-&gt;val)
+        {
+            return false;
+        }
+        
+        return isMirror(l-&gt;left, r-&gt;right) &amp;&amp; isMirror(l-&gt;right, r-&gt;left);
+    }
+    bool isSymmetric(TreeNode *root) 
+    {
+        if(root == NULL)
+        {
+            return true;
+        }
+        
+        isMirror(root-&gt;left, root-&gt;right);
+    }
+</code></pre></div></div>
+
+					<br />
+					
+					<div class="cc-tips">
+						<br>
+						<!-- <p>------ω------</p> -->
+						<p>--EOF--</p>
+						<br>
+						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢。</p>
+					</div>
+					
+				</div>				
+				
+					<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://zeroooooooo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				
+			</div>
+			<div id="footer">
+    <p style="color:#ccc;font-size:12px;text-align: center">撃っていいのは、撃たれる覚悟のある奴だけだ</p>
+    <p style="clear:both"></p>
+</div>
+<script type="text/javascript" src="/assets/drawer/rx_drawer.js"></script>
+<script>
+    var category = location.pathname;
+    if (category == '/') {
+        // document.getElementById('drawer-category-all').style.textDecoration = "underline";
+    } else if (category == '/category/tech.html' || (/test/).test(category)) {
+        document.getElementById('drawer-category-tech').style.textDecoration = "underline";
+    } else if (category == '/category/essay.html'|| (/essay/).test(category)) {
+        document.getElementById('drawer-category-essay').style.textDecoration = "underline";
+    } else if (category == '/category/reading.html' || (/reading/).test(category)) {
+        document.getElementById('drawer-category-reading').style.textDecoration = "underline";
+    } else if (category == '/views/quotes.html' || (/quotes/).test(category)) {
+        document.getElementById('drawer-category-quotes').style.textDecoration = "underline";
+    } else if (category == '/views/discover.html' || (/discover/).test(category)) {
+        document.getElementById('drawer-category-discover').style.textDecoration = "underline";
+    } else if (category == '/views/chocolates.html' || (/chocolates/).test(category)) {
+        document.getElementById('drawer-category-chocolates').style.textDecoration = "underline";
+    } else if (category == '/views/strawhat.html' || (/strawhat/).test(category)) {
+        document.getElementById('drawer-category-captain').style.textDecoration = "underline";
+    } else if (category == '/views/wiki.html' || (/wiki/).test(category)) {
+        // document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
+    } else {
+        document.getElementById('drawer-category-archive').style.textDecoration = "underline";
+    }
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { 
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            availableFonts: [],
+            preferredFont: null,
+            webFont: "STIX-Web",
+            imageFont: null
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110574634-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110574634-1');
+</script>
+		</div>
+		<style>
+    .cc {
+        text-align: center;
+        margin-top: 30px;
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .cc a {
+        color: #ccc;
+    }
+</style>
+<div class="cc">
+    <p>© Sat Dec 02 2017, zerol</p>
+    <!-- <p>Tue, Dec 10, 2019</p> -->
+    <p>Thanks to <a href="https://jekyllrb.com/" target="_blank">jekyll's</a> great work and <a href="http://limboy.me/" target="_blank">limboy's</a> blog theme, they inspired me a lot.</p>
+</div>
+	</body>
+</html>

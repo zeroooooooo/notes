@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "//www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title> Dijkstra算法 - Zerol's Notes</title>
+		
+		<link rel="shortcut icon" href="/assets/image/dark.png" type="image/x-icon">	
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/drawer/rx_drawer.css">
+		<link rel="stylesheet" href="/assets/mermaid/mermaid.css">
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="//feeds.feedburner.com/zeroooooooo">
+	</head>
+	
+	<style>
+		.cc-tips {
+			margin-top: 20px;
+		}
+		.cc-tips p {
+			margin: 0 !important;
+			font-size: 13px;
+		}
+	</style>
+	<body>
+		<div id="nav" class="fixd-header">
+	<div class="wrapper" id="nav-wrapper">
+		<div id="logo">
+			<a href="/">
+				<img src="/assets/image/zerol.png" />
+			</a>
+		</div>
+		<ul id="nav-list">
+			<li id="category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li id="category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li id="category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!--<li id="category-design"><a href="/category/design.html">设计</a></li>-->
+			<!-- <li id="category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li id="category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li id="category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li id="category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li id="category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li id="category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+	<div class="drawer-header-contarner">
+		<div class="rx_icon" id="rx_icon"></div>
+		<span class="title">Zerol</span>
+	</div>
+</div>
+<div class="drawer" id="drawer">
+	<div class="content">
+		<div class="header">
+			<div class="avatar"></div>
+			<a class="text" href="/">
+				<div class="field name">Zerol</div>
+				<div class="field info">有所期待。</div>
+			</a>
+		</div>
+		<ul class="menu">
+			<li class="drawer-item" id="drawer-category-tech">
+				<a href="/category/tech.html">Tech</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-essay">
+				<a href="/category/essay.html">Essay</a>
+			</li>
+			<li class="drawer-item" id="drawer-category-reading">
+				<a href="/category/reading.html">Reading</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-design"><a href="/category/design.html">设计</a></li> -->
+			<!-- <li class="drawer-item" id="drawer-category-discover">
+				<a href="/views/discover.html">Discover</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-quotes">
+				<a href="/views/quotes.html">Quotes</a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-chocolates">
+				<a href="/views/chocolates.html">Chocolates</a>
+				<a href="https://trello.com/b/F1gyL4zj/dawning" target="_blank">Chocolates</a>
+			</li> -->
+			<li class="drawer-item" id="drawer-category-captain">
+				<a href="/views/strawhat.html">Straw Hat </a>
+			</li>
+			<!-- <li class="drawer-item" id="drawer-category-wiki"><a href="/views/wiki.html">Wiki</a></li> -->
+			<li class="drawer-item" id="drawer-category-archive">
+				<a href="/views/archive.html">Archive</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<script>
+	var category = location.pathname;
+	if (category == '/') {
+		// document.getElementById('category-all').style.textDecoration = "underline";
+	} else if (category == '/category/tech.html') {
+		document.getElementById('category-tech').style.textDecoration = "underline";
+	} else if (category == '/category/essay.html') {
+		document.getElementById('category-essay').style.textDecoration = "underline";
+	} else if (category == '/category/reading.html') {
+		document.getElementById('category-reading').style.textDecoration = "underline";
+	} else if (category == '/views/quotes.html') {
+		document.getElementById('category-quotes').style.textDecoration = "underline";
+	} else if (category == '/views/discover.html') {
+		// document.getElementById('category-discover').style.textDecoration = "underline";
+	} else if (category == '/views/chocolates.html') {
+		// document.getElementById('category-chocolates').style.textDecoration = "underline";
+	} else if (category == '/views/strawhat.html') {
+		document.getElementById('category-captain').style.textDecoration = "underline";
+	} else if (category == '/views/wiki.html') {
+		// document.getElementById('category-wiki').style.textDecoration = "underline";
+	} else if (category == '/views/archive.html') {
+		document.getElementById('category-archive').style.textDecoration = "underline";
+	}
+</script>
+		<div class="wrapper main">
+			<div id="content">
+				<h2>Dijkstra算法</h2>
+				<div class="cnt">
+					<h3 id="dijkstra算法的基本思想">Dijkstra算法的基本思想</h3>
+
+<p>Dijkstra算法的基本思想其实就是,通过与起点链接的最短距离的点去更新其他的点的位置,这样到最后更新完后就可以得到一个存储起点到其他各个点的最短距离的数组,步骤如下:</p>
+
+<ul>
+  <li>初始化的过程是将存储答案的数组初始化为与起点有相连的设为权重,不相连的置为无穷,还有done数组全部置为0</li>
+  <li>从点1开始对图中所有的点进行遍历起初与起点距离最短的点,将这个位置的done置为1,即表示这个点已经完成</li>
+  <li>接下来通过上面得到的与起点距离最短的点对其他的点的位置进行位置更新,如果起点到这个点的距离大于起点通过步骤2得到的点再到这个点的距离,则将起点到这个点的距离更新为后者的值</li>
+  <li>
+    <p>得到存储结果的数组,输出即可</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  #include &lt;iostream&gt;
+  #include &lt;vector&gt;
+  using namespace std;
+  #define MAXVEX 9
+  #define INFINITY 65535
+
+  void dijkstra(vector&lt;int&gt; ver[], int begin, int size, int ans[])
+  {
+      int vexNode, weight, pos, min;
+      int done[MAXVEX];
+
+      /*
+          初始化,done数组记录的是已经从起点到某一点的最短距离是否求出,若是为1,不是为0
+          所以一开始初始化时全部都为0,然后存储结果的ans数组存储的是起点到其他点的最短距离值
+          所以初始化时,先将与起点有链接的点的距离设为其之间的权重,其他不相连的值设为无穷
+      */
+      for (int i = 0; i &lt; size; ++i)
+      {
+          done[i] = 0;
+          ans[i] = ver[begin][i];
+      }
+      //因为起点到起点的最短距离是0所以初始化为0,同时起点到起点的最短距离已经求出,所以done置为1
+      ans[begin] = 0;
+      done[begin] = 1;
+
+      //初始化完成后,即可开始进入下面的循环,循环的作用就是不断更新其他点到起点的距离直到最短
+      for (vexNode = 1; vexNode &lt; size; ++vexNode)
+      {
+          //第一个循环的作用是在与起点相连的点中找出距离最短的点,目的是要利用这个点来更新其他点的位置信息
+          min = INFINITY;
+          for (weight = 0; weight &lt; size; ++weight)
+          {
+              if (!done[weight] &amp;&amp; ans[weight] &lt; min)
+              {
+                  pos = weight;
+                  min = ans[weight];
+              }
+          }
+          //找出与起点距离最短的点后,这个点的就完成了,即done[pos]置为1
+          done[pos] = 1;
+
+          //循环二的作用是通过前面得到的与起点距离最短的点来对其他的点的位置进行更新
+          for (weight = 0; weight &lt; size; ++weight)
+          {
+              if (!done[weight] &amp;&amp; min + ver[pos][weight] &lt; ans[weight] )
+              {
+                  ans[weight] = min + ver[pos][weight];
+              }
+          }
+      }
+  }
+
+  int main()
+  {
+      vector&lt;int&gt; a[INFINITY];
+      int from, to, weight;
+      int n, m;
+      cin &gt;&gt; n;
+      m = n;
+      for (int i = 0; i &lt; n; ++i)
+      {
+          for (int j = 0; j &lt; n; ++j)
+          {
+              if ( i != j )
+              {
+                  a[i].push_back(INFINITY);
+              }
+              else
+              {
+                  a[i].push_back(0);
+              }
+          }
+      }
+
+      while( m-- )
+      {
+          cin &gt;&gt; from &gt;&gt; to &gt;&gt; weight;
+          a[from][to] = weight;
+      }
+      int ans[100];
+      dijstra(a, 0, n, ans);
+      for (int i = 0; i &lt; n; ++i)
+      {
+          cout &lt;&lt; ans [i] &lt;&lt; " ";
+      }
+      cout &lt;&lt; endl;
+      getchar();
+      cin &gt;&gt; n;
+      return 0;
+  }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+					<br />
+					
+					<div class="cc-tips">
+						<br>
+						<!-- <p>------ω------</p> -->
+						<p>--EOF--</p>
+						<br>
+						<p>若无特别说明，本站文章均为原创，转载请保留链接，如有思考不周的地方, 也欢迎指正, 谢谢。</p>
+					</div>
+					
+				</div>				
+				
+					<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = 'https://zeroooooooo.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+				
+			</div>
+			<div id="footer">
+    <p style="color:#ccc;font-size:12px;text-align: center">撃っていいのは、撃たれる覚悟のある奴だけだ</p>
+    <p style="clear:both"></p>
+</div>
+<script type="text/javascript" src="/assets/drawer/rx_drawer.js"></script>
+<script>
+    var category = location.pathname;
+    if (category == '/') {
+        // document.getElementById('drawer-category-all').style.textDecoration = "underline";
+    } else if (category == '/category/tech.html' || (/test/).test(category)) {
+        document.getElementById('drawer-category-tech').style.textDecoration = "underline";
+    } else if (category == '/category/essay.html'|| (/essay/).test(category)) {
+        document.getElementById('drawer-category-essay').style.textDecoration = "underline";
+    } else if (category == '/category/reading.html' || (/reading/).test(category)) {
+        document.getElementById('drawer-category-reading').style.textDecoration = "underline";
+    } else if (category == '/views/quotes.html' || (/quotes/).test(category)) {
+        document.getElementById('drawer-category-quotes').style.textDecoration = "underline";
+    } else if (category == '/views/discover.html' || (/discover/).test(category)) {
+        document.getElementById('drawer-category-discover').style.textDecoration = "underline";
+    } else if (category == '/views/chocolates.html' || (/chocolates/).test(category)) {
+        document.getElementById('drawer-category-chocolates').style.textDecoration = "underline";
+    } else if (category == '/views/strawhat.html' || (/strawhat/).test(category)) {
+        document.getElementById('drawer-category-captain').style.textDecoration = "underline";
+    } else if (category == '/views/wiki.html' || (/wiki/).test(category)) {
+        // document.getElementById('drawer-category-wiki').style.textDecoration = "underline";
+    } else {
+        document.getElementById('drawer-category-archive').style.textDecoration = "underline";
+    }
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: { 
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+            processEscapes: true
+        },
+        "HTML-CSS": {
+            availableFonts: [],
+            preferredFont: null,
+            webFont: "STIX-Web",
+            imageFont: null
+        }
+    });
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110574634-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110574634-1');
+</script>
+		</div>
+		<style>
+    .cc {
+        text-align: center;
+        margin-top: 30px;
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+    }
+    .cc a {
+        color: #ccc;
+    }
+</style>
+<div class="cc">
+    <p>© Sat Dec 02 2017, zerol</p>
+    <!-- <p>Tue, Dec 10, 2019</p> -->
+    <p>Thanks to <a href="https://jekyllrb.com/" target="_blank">jekyll's</a> great work and <a href="http://limboy.me/" target="_blank">limboy's</a> blog theme, they inspired me a lot.</p>
+</div>
+	</body>
+</html>
